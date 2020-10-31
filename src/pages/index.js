@@ -51,6 +51,7 @@ class IndexPage extends React.Component {
     const projects = data.projects.edges
     const articles = data.articles.edges
     
+    console.log(skills);
     return (
       <Layout location={this.props.location}>
         <SEO
