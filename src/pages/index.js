@@ -1,45 +1,145 @@
 import React from "react"
 import { Link } from "gatsby"
+import '../styles/index.scss';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
+import Navbar from "../components/Navbar/navbar"
+import headerImg from "../assets/img/header-1.jpg"
 
+const Skills = ({skills}) => (
+  <div className="home-skills">
+    {skills.map(({ node }) => {
+      return (
+        <div key={node.fields.slug}>
+          <h6>{node.frontmatter.title}</h6>
+        </div>
+      )
+    })}
+  </div>
+)
+
+const Projects = ({projects}) => (
+  <div className="home-projects">
+    {projects.map(({ node }) => {
+      return (
+        <div key={node.fields.slug}>
+          <h6>{node.frontmatter.title}</h6>
+        </div>
+      )
+    })}
+  </div>
+)
+
+const Articles = ({articles}) => (
+  <div className="home-articles">
+    {articles.map(({ node }) => {
+      return (
+        <div key={node.fields.slug}>
+          <h6>{node.frontmatter.title}</h6>
+        </div>
+      )
+    })}
+  </div>
+)
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = "Gatsby Starter Personal Website"
+    const { data } = this.props
 
+    const skills = data.skills.edges
+    const projects = data.projects.edges
+    const articles = data.articles.edges
+    
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
         <SEO
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <img style={{ margin: 0 }} src="./GatsbyScene.svg" alt="Gatsby Scene" />
-        <h1>
-          Hey people{" "}
-          <span role="img" aria-label="wave emoji">
-            👋
-          </span>
-        </h1>
-        <p>Welcome to your new Gatsby website. You are on your home page.</p>
-        <p>
-          This starter comes out of the box with styled components and Gatsby's
-          default starter blog running on Netlify CMS.
-        </p>
-        <p>Now go build something great!</p>
-        <Link to="/blog/">
-          <Button marginTop="35px">Go to Blog</Button>
-        </Link>
-        <Link to="/skills/">
-          <Button marginTop="35px">Go to skills</Button>
-        </Link>
-        <Link to="/projects/">
-          <Button marginTop="35px">Go to projects</Button>
-        </Link>
+        <Navbar />
+        <section className="home">
+          <header className="home-header">
+            <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/>
+          </header>
+          <div className="container">
+
+            <Skills skills={skills} />
+            <Projects projects={projects} />
+            <Articles articles={articles} />
+          </div>
+        </section>
       </Layout>
     )
   }
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    localSearchItems {
+      index
+      store
+    }
+    skills: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { glob: "**/content/skills/*.md" } }
+      ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+    projects: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { glob: "**/content/projects/*.md" } }
+      ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+    articles: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { glob: "**/content/blog/*.md" } }
+      ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`

@@ -1,0 +1,9 @@
+@import "./generic.scss";
+
+.home {
+    &-header{
+        &-bg{
+            width: 100%;
+        }
+    }
+}
