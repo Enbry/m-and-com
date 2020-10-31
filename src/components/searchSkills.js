@@ -38,7 +38,7 @@ const SearchBar = styled.div`
   }
 `
 
-const SearchedPosts = ({ results }) =>
+const SearchedSkills = ({ results }) =>
   results.length > 0 ? (
     results.map(node => {
       const date = node.date
@@ -50,7 +50,7 @@ const SearchedPosts = ({ results }) =>
       return (
         <div key={slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/skills${slug}`}>
               {title}
             </Link>
           </h3>
@@ -65,18 +65,18 @@ const SearchedPosts = ({ results }) =>
     })
   ) : (
     <p style={{ textAlign: "center" }}>
-      Sorry, couldn't find any posts matching this search.
+      Sorry, couldn't find any skills matching this search.
     </p>
   )
 
-const AllPosts = ({ posts }) => (
+const AllSkills = ({ skills }) => (
   <div style={{ margin: "20px 0 40px" }}>
-    {posts.map(({ node }) => {
+    {skills.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug
       return (
         <div key={node.fields.slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/skills${node.fields.slug}`}>
               {title}
             </Link>
           </h3>
@@ -92,7 +92,7 @@ const AllPosts = ({ posts }) => (
   </div>
 )
 
-const SearchPosts = ({ posts, localSearchItems, location, navigate }) => {
+const SearchSkills = ({ skills, localSearchItems, location, navigate }) => {
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || "")
 
@@ -115,19 +115,19 @@ const SearchPosts = ({ posts, localSearchItems, location, navigate }) => {
         <input
           id="search"
           type="search"
-          placeholder="Search all posts"
+          placeholder="Search all skills"
           value={query}
           onChange={e => {
             navigate(
-              e.target.value ? `/blog/?search=${e.target.value}` : "/blog/"
+              e.target.value ? `/skills/?search=${e.target.value}` : "/skills/"
             )
             setQuery(e.target.value)
           }}
         />
       </SearchBar>
-      {query ? <SearchedPosts results={results} /> : <AllPosts posts={posts} />}
+      {query ? <SearchedSkills results={results} /> : <AllSkills skills={skills} />}
     </>
   )
 }
 
-export default SearchPosts
+export default SearchSkills
