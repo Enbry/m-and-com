@@ -2,13 +2,11 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class SkillsPostTemplate extends React.Component {
   render() {
-    console.log(this.props);
     const skill = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
@@ -27,7 +25,7 @@ class SkillsPostTemplate extends React.Component {
         </p>
         <MDXRenderer>{skill.body}</MDXRenderer>
         <hr/>
-        <Bio />
+        {/* <Bio /> */}
 
         <ul
           style={{

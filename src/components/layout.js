@@ -57,14 +57,9 @@ class Layout extends React.Component {
             marginRight: `auto`,
           }}
         >
-          <header>{header}</header>
           <main>{children}</main>
         </div>
-        <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
+        
       </Wrapper>
     )
   }

@@ -1,0 +1,51 @@
+@import "../../styles/generic.scss";
+
+.active {
+    color: $red;
+}
+.navbar{
+    text-transform: uppercase;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    background: white;
+
+    &-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-logo{
+        height: 50px;
+    }
+
+    &-menu{
+        display: flex;
+        align-items: center;
+        list-style: none;
+
+        &Item{
+            margin: 0 12px;
+            position: relative;
+            transition: all 0.5s ease-in-out;
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 0;
+                transition: .3s ease width;
+                border-bottom: 3px solid;
+                border-color: $red;
+            }
+            &:hover{
+                color: $red;
+
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
