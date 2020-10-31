@@ -5,21 +5,21 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
-import SearchPosts from "../components/searchPosts"
+import SearchSkills from "../components/searchSkills"
 
-class Blog extends React.Component {
+class Skills extends React.Component {
   render() {
     const { data, navigate, location } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
+    const skills = data.allMdx.edges
     const localSearchItems = data.localSearchItems
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="All skills" />
         <Bio />
-        <SearchPosts
-          posts={posts}
+        <SearchSkills
+          skills={skills}
           localSearchItems={localSearchItems}
           navigate={navigate}
           location={location}
@@ -32,7 +32,7 @@ class Blog extends React.Component {
   }
 }
 
-export default Blog
+export default Skills
 
 export const pageQuery = graphql`
   query {
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
     }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fileAbsolutePath: { glob: "**/content/blog/*.md" } }
+      filter: { fileAbsolutePath: { glob: "**/content/skills/*.md" } }
       ) {
       edges {
         node {

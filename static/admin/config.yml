@@ -6,223 +6,99 @@ media_folder: content/assets
 public_folder: ../assets
 
 collections:
-  - name: "skills"
-    label: "Skills"
-    description: "Meetup dates, location, and presenter information."
-    folder: "src/pages/skills"
+  - name: blog
+    label: Blog
+    folder: content/blog
     create: true
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "skill" }
-      - { label: "ID", name: "id", widget: "number" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Process", name: "process", widget: "string" }
-      - {
-        label: "Icone",
-        name: "icon",
-        widget: "object",
-        fields:
-          [
-            { label: "Icone", name: "icone", widget: "image" },
-            { label: "Icone Description", name: "imageAlt", widget: "string" },
-          ],
-      }
-  - name: "projects"
-    label: "Projects"
-    description: "Meetup dates, location, and presenter information."
-    folder: "src/pages/projects"
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+  - name: skills
+    label: Skills
+    description: Skills
+    folder: content/skills
     create: true
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "project" }
-      - { label: "ID", name: "id", widget: "number" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+      - { name: process, label: Process, widget: string }
       - {
-        label: "Image",
-        name: "image",
-        widget: "object",
+        name: icon,
+        label: Icone,
+        widget: object,
         fields:
           [
-            { label: "Image", name: "image", widget: "image" },
-            { label: "Image Description", name: "imageAlt", widget: "string" },
+            { name: icone, label: Icone, widget: image },
+            { name: imageAlt, label: Icone Description, widget: string },
+          ],
+      }
+  - name: projects
+    label: Projects
+    description: Projects
+    folder: content/projects
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+      - {
+        name: image,
+        label: Image,
+        widget: object,
+        fields:
+          [
+            { name: image, label: Image, widget: image },
+            { name: imageAlt, label: Image Description, widget: string },
           ],
       }
       - {
-        label: Missions,
         name: missions,
+        label: Missions,
         required: true,
-        widget: "list",
+        widget: list,
         fields:
           [
-            { label: Text, name: text, required: true, widget: string }
+            { name: text, label: Text, required: true, widget: string }
           ]
       }
-      - { label: "Link", name: "siteLink", widget: "string" }
+      - { label: Link, name: siteLink, widget: string }
       - {
         label: Clients,
         name: clients,
         required: true,
-        widget: "list",
+        widget: list,
         fields:
           [
-            { label: Title, name: title, required: true, widget: string },
-            { label: Description, name: description, required: true, widget: string },
+            { name: title, label: Title, required: true, widget: string },
+            { name: description, label: Description, required: true, widget: string },
             {
               label: Liens,
               name: links,
               required: false,
-              widget: "list",
+              widget: list,
               fields:
                 [
-                  { label: Site Link, name: siteLink, widget: string },
-                  { label: LinkedIn Link, name: linkedInLink, widget: string },
+                  { name: siteLink, label: Site Link, widget: string },
+                  { name: linkedInLink, label: LinkedIn Link, widget: string },
                 ],
             },
           ]
       }
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "src/pages/skillsPage/index.md"
-        label: "Skills"
-        name: "skills"
-        fields:
-          - {
-            label: "Template Key",
-            name: "templateKey",
-            widget: "hidden",
-            default: "skills-page",
-          }
-          - {
-            label: "Header Image",
-            name: "headerImage",
-            widget: "object",
-            fields:
-              [
-                { label: "Image", name: "image", widget: "image" },
-                { label: "Image Description", name: "imageAlt", widget: "string" },
-              ],
-          }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subitle", name: "subtitle", widget: "string" }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
-      - file: "src/pages/projectsPage/index.md"
-        label: "Projects"
-        name: "projects"
-        fields:
-          - {
-            label: "Template Key",
-            name: "templateKey",
-            widget: "hidden",
-            default: "projects-page",
-          }
-          - {
-            label: "Header Image",
-            name: "headerImage",
-            widget: "object",
-            fields:
-              [
-                { label: "Image", name: "image", widget: "image" },
-                { label: "Image Description", name: "imageAlt", widget: "string" },
-              ],
-          }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subitle", name: "subtitle", widget: "string" }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
-      - file: "src/pages/homePage/index.md"
-        label: "Home"
-        name: "home"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
-          - {
-              label: "Header Image",
-              name: "headerImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
- 
- 
-  - name: "navbarAndFooter"
-    label: "Navbar & Footer"
-    files:
-      - file: "src/pages/navbar/index.md"
-        label: "Navbar"
-        name: "navbar"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "navbar" }
-          - {
-              label: "Menu Items",
-              name: "menuItems",
-              widget: "list",
-              fields:
-                [
-                  { label: "Label", name: "label", widget: "string" },
-                  { label: "Link Type", name: "linkType", widget: "select", options: ["internal", "external"] },
-                  { label: "Link URL", name: "linkURL", widget: "string", hint: "Use a relative URL (e.g. /about) if the link is an internal link." },
-                ],
-            }
-      - file: "src/pages/footer/index.md"
-        label: "Footer"
-        name: "footer"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
-          - {
-              label: "Logo Image & Tagline",
-              name: "logoImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                  { label: "Tagline", name: "tagline", widget: "string" },
-                ],
-            }
-          - {
-              label: "Social Links",
-              name: "socialLinks",
-              widget: "list",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                  { label: "Label", name: "label", widget: "string" },
-                  { label: "Link URL", name: "linkURL", widget: "string" },
-                ],
-            }
+  - name: blog
+  label: Blog
+  folder: content/blog
+  create: true
+  fields:
+    - { name: path, label: Path }
+    - { name: date, label: Date, widget: date }
+    - { name: title, label: Title }
+    - { name: description, label: Description }
+    - { name: body, label: Body, widget: markdown }

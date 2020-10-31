@@ -38,7 +38,7 @@ const SearchBar = styled.div`
   }
 `
 
-const SearchedPosts = ({ results }) =>
+const SearchedProjects = ({ results }) =>
   results.length > 0 ? (
     results.map(node => {
       const date = node.date
@@ -50,7 +50,7 @@ const SearchedPosts = ({ results }) =>
       return (
         <div key={slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/projects${slug}`}>
               {title}
             </Link>
           </h3>
@@ -69,14 +69,14 @@ const SearchedPosts = ({ results }) =>
     </p>
   )
 
-const AllPosts = ({ posts }) => (
+const AllProjects = ({ projects }) => (
   <div style={{ margin: "20px 0 40px" }}>
-    {posts.map(({ node }) => {
+    {projects.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug
       return (
         <div key={node.fields.slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/projects${node.fields.slug}`}>
               {title}
             </Link>
           </h3>
@@ -92,7 +92,7 @@ const AllPosts = ({ posts }) => (
   </div>
 )
 
-const SearchPosts = ({ posts, localSearchItems, location, navigate }) => {
+const SearchProjects = ({ projects, localSearchItems, location, navigate }) => {
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || "")
 
@@ -119,15 +119,15 @@ const SearchPosts = ({ posts, localSearchItems, location, navigate }) => {
           value={query}
           onChange={e => {
             navigate(
-              e.target.value ? `/blog/?search=${e.target.value}` : "/blog/"
+              e.target.value ? `/projects/?search=${e.target.value}` : "/projects/"
             )
             setQuery(e.target.value)
           }}
         />
       </SearchBar>
-      {query ? <SearchedPosts results={results} /> : <AllPosts posts={posts} />}
+      {query ? <SearchedProjects results={results} /> : <AllProjects projects={projects} />}
     </>
   )
 }
 
-export default SearchPosts
+export default SearchProjects

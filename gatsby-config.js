@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-local-search",
       options: {
-        name: "blog",
+        name: "items",
         engine: "flexsearch",
         engineOptions: {
           encode: "icase",
@@ -65,6 +65,20 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/skills`,
+        name: `skills`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: `projects`,
       },
     },
     {
