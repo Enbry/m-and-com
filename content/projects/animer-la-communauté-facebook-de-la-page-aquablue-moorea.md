@@ -1,5 +1,5 @@
 ---
-path: "Animer la communauté Facebook de la page Aquablue Moorea "
+path: "Aquablue Moorea "
 date: 2020-11-01T19:18:45.889Z
 title: "Animer la communauté Facebook de la page Aquablue Moorea "
 subtitle: "#gestiondeprojet #print #redaction #naming"
