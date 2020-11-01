@@ -1,15 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery} from "gatsby"
 import '../styles/index.scss';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 import Navbar from "../components/Navbar/navbar"
-import headerImg from "../assets/img/header-1.jpg"
+import Carousel from "../components/Carousel/carousel"
+// import headerImg from "../assets/img/header-1.jpg"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faAd, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import BackgroundSlider from 'gatsby-image-background-slider'
+
+library.add(faAd, faUserFriends);
 
 const Skills = ({skills}) => (
   <div className="home-skills">
@@ -17,8 +22,7 @@ const Skills = ({skills}) => (
       return (
         <div key={node.fields.slug}>
           <h6>{node.frontmatter.title}</h6>
-          <FontAwesomeIcon icon={faCoffee} />
-          <img src={node.frontmatter.icon} />
+          <FontAwesomeIcon icon={node.frontmatter.icon} />
           {/* <Image
             fluid={node.frontmatter.icon.childImageSharp.fluid}
           /> */}
@@ -58,8 +62,8 @@ class IndexPage extends React.Component {
     const skills = data.skills.edges
     const projects = data.projects.edges
     const articles = data.articles.edges
-    
-    console.log(skills);
+    const backgrounds = data.backgrounds.nodes
+
     return (
       <Layout location={this.props.location}>
         <SEO
@@ -69,8 +73,10 @@ class IndexPage extends React.Component {
         <Navbar />
         <section className="home">
           <header className="home-header">
-            <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/>
+            {/* <Carousel backgrounds={backgrounds}/> */}
+            {/* <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/> */}
           </header>
+          
           <div className="container">
 
             <Skills skills={skills} />
@@ -151,5 +157,15 @@ export const pageQuery = graphql`
         }
       }
     }
+    backgrounds: allFile (filter: {sourceInstanceName: {eq: "backgrounds"}}){
+      nodes {
+          relativePath
+          childImageSharp {
+              fluid (maxWidth: 4000, quality: 100){
+              ...GatsbyImageSharpFluid
+              }
+          }
+      }
+    } 
   }
 `

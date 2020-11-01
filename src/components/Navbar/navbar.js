@@ -19,8 +19,13 @@ const Navbar = () => (
           </Link>
         </li>
         <li className="navbar-menuItem">
-          <Link to="/blog/" activeClassName="active">
+          <Link to="/articles/" activeClassName="active">
             Actualités
+          </Link>
+        </li>
+        <li className="navbar-menuItem">
+          <Link to="/blog/" activeClassName="active">
+            Blog
           </Link>
         </li>
         <li className="navbar-menuItem">

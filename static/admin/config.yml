@@ -16,6 +16,26 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+  - name: articles
+  label: Articles
+  folder: content/articles
+  create: true
+  fields:
+    - { name: path, label: Path }
+    - { name: date, label: Date, widget: date }
+    - { name: title, label: Title }
+    - { name: description, label: Description }
+    - { name: body, label: Body, widget: markdown }
+    - {
+      name: image,
+      label: Image,
+      widget: object,
+      fields:
+        [
+          { name: image, label: Image, widget: image },
+          { name: imageAlt, label: Image Description, widget: string },
+        ],
+    }
   - name: skills
     label: Skills
     description: Skills
