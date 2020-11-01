@@ -1,0 +1,109 @@
+@import "../styles/generic.scss";
+
+.article {
+    
+    margin: 90px 0 0 10%;
+
+    &-content{
+        display: flex;
+        width: 70%;
+    }
+
+    &-sidebar{
+        width: 35%;
+    }
+
+    &-item{
+        margin-bottom: 40px;
+        background-color: $white;
+
+        &Content{
+            padding: 10px 35px;
+        }
+
+        &Image{
+            overflow: hidden;
+            max-height: 400px;
+        }
+
+        &Date{
+            display: flex;
+            align-items: center;
+            color: $lightgray;
+            font-weight: $bold;
+            font-size: 14px;
+
+            &Icon{
+                margin-right: 10px;
+                color: $green;
+                font-size: 20px;
+            }
+        }
+
+        &Body{
+            color: $gray;
+            line-height: 1.5;
+        }
+    }
+
+    &-navigation{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        padding-inline-start: 0;
+        margin-right: 10%;
+
+        &Link{
+            display: flex;
+            align-items: center;
+
+        }
+
+        &Item{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            &.previous{
+                align-items: flex-start;
+            }
+
+            &.next{
+                align-items: flex-end;
+            }
+            
+            &Title{
+                transition: all 0.3s ease-in-out;
+                margin:0;
+                font-weight: $bold;
+                &:hover{
+                    color: $green;
+                }
+            }
+
+            &Text{
+                margin:0;
+                color: $lightgray;
+                font-weight: $bold;
+                font-size: 14px;
+            }
+        }
+
+        &Icon{
+            background-color: $white;
+            border-radius: 50%;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                color: $green;
+            }
+
+            &.next{
+                margin-left: 10px;
+            }
+            &.previous{
+                margin-right: 10px;
+            }
+        }
+    }
+}

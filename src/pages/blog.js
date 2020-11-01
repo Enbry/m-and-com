@@ -5,17 +5,21 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchPosts from "../components/searchPosts"
-
+import Navbar from "../components/Navbar/navbar"
+import Banner from "../components/Banner/banner"
 class Blog extends React.Component {
   render() {
     const { data, navigate, location } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
     const localSearchItems = data.localSearchItems
+    const background = data.backgroundImage.childImageSharp;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
+        <Navbar />
+        <Banner title="Blog" background={background}/>
         <SearchPosts
           posts={posts}
           localSearchItems={localSearchItems}
@@ -59,6 +63,14 @@ export const pageQuery = graphql`
             description
           }
         }
+      }
+    }
+    backgroundImage: file (relativePath: { eq: "header-4.jpg" }){
+      relativePath
+      childImageSharp {
+          fluid (quality: 100){
+          ...GatsbyImageSharpFluid
+          }
       }
     }
   }

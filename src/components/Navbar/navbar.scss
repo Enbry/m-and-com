@@ -1,12 +1,14 @@
 @import "../../styles/generic.scss";
 
 .active {
-    color: $red;
+    color: $green;
 }
 .navbar{
     text-transform: uppercase;
     padding: 20px 0;
     position: fixed;
+    top: 0;
+    z-index: 1;
     width: 100%;
     background: white;
 
@@ -37,10 +39,10 @@
                 width: 0;
                 transition: .3s ease width;
                 border-bottom: 3px solid;
-                border-color: $red;
+                border-color: $green;
             }
             &:hover{
-                color: $red;
+                color: green;
 
                 &:after {
                     width: 100%;
