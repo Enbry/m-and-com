@@ -1,7 +1,7 @@
 ---
-path: éditeurs-de-contenus-s-adaptent-nouvelles-consommations
+path: editeurs-de-contenus-s-adaptent-nouvelles-consommations
 date: 2020-11-01T13:08:30.479Z
-title: Les éditeurs de contenus s'adaptent aux nouvelles consommations
+title: editeurs-de-contenus-s-adaptent-nouvelles-consommations
 description: Les éditeurs de contenus s'adaptent aux nouvelles consommations
 image:
   imageAlt: éditeurs contenus nouvelles consommations
