@@ -3,7 +3,6 @@
 .articles {
     display: flex;
     margin: 70px 0 0 15%;
-    
 
     &-search{
         width: 35%;
@@ -32,8 +31,11 @@
         }
 
         &Date{
-            color: $gray;
+            display: flex;
+            align-items: center;
+            color: $lightgray;
             font-weight: $bold;
+            font-size: 14px;
 
             &Icon{
                 margin-right: 10px;

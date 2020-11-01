@@ -5,7 +5,11 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import Breadcrumb from "../components/Breadcrumb/breadcrumb"
+import Navbar from "../components/Navbar/navbar"
+import '../styles/article.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 class ArticlesPostTemplate extends React.Component {
   render() {
     const article = this.props.data.mdx
@@ -19,40 +23,60 @@ class ArticlesPostTemplate extends React.Component {
           title={article.frontmatter.title}
           description={article.frontmatter.description || article.excerpt}
         />
-        <h1>{article.frontmatter.title}</h1>
-        <Img fluid={article.frontmatter.image.image.childImageSharp.fluid} />
-        <p
-          style={{display: `block`}}
-        >
-          {article.frontmatter.date}
-        </p>
-        <MDXRenderer>{article.body}</MDXRenderer>
-        <hr/>
-
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`/articles${previous.fields.slug}`} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`/articles${next.fields.slug}`} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        <Navbar/>
+        <div className="article">
+          <Breadcrumb title={`${article.frontmatter.title.slice(0,50)}...`} link="/articles" page="Actualités"/>
+          <div className="article-container">
+            <div className="article-content">
+              <div className="article-item">
+                <Img fluid={article.frontmatter.image.image.childImageSharp.fluid} />
+                <div className="article-itemContent">
+                  <h2 className="article-itemTitle">{article.frontmatter.title}</h2>
+                  <p
+                    className="article-itemDate"
+                    style={{display: `block`}}
+                  >
+                    <FontAwesomeIcon icon={faCalendarAlt} className="articles-itemDateIcon"/>
+                    {article.frontmatter.date}
+                  </p>
+                  <div className="article-itemBody">
+                    <MDXRenderer>{article.body}</MDXRenderer>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="article-sidebar"></div>
+          </div>
+          <ul className="article-navigation">
+              <li>
+                {previous && (
+                  <>
+                    <Link className="article-navigationLink" to={`/articles${previous.fields.slug}`} rel="previous">
+                      <FontAwesomeIcon icon={faArrowLeft} className="article-navigationIcon previous"/>
+                      <div className="article-navigationItem previous">
+                        <p className="article-navigationItemTitle">{`${previous.frontmatter.title.slice(0,30)}...`}</p>
+                        <p className="article-navigationItemText">Précédent</p>
+                      </div>
+                    </Link>
+                  </>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <>
+                    <Link className="article-navigationLink" to={`/articles${next.fields.slug}`} rel="next">
+                      <div className="article-navigationItem next">
+                        <p className="article-navigationItemTitle">{`${next.frontmatter.title.slice(0,30)}...`}</p>
+                        <p className="article-navigationItemText">Suivant</p>
+                      </div>
+                      <FontAwesomeIcon icon={faArrowRight} className="article-navigationIcon next"/>
+                    </Link>
+                  </>
+                )}
+              </li>
+            </ul>
+        </div>
       </Layout>
     )
   }
@@ -74,7 +98,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD/MM/YYYY")
         description
         image {
           imageAlt
