@@ -5,18 +5,21 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchSkills from "../components/searchSkills"
-
+import Navbar from "../components/Navbar/navbar"
+import Banner from "../components/Banner/banner"
 class Skills extends React.Component {
   render() {
     const { data, navigate, location } = this.props
     const siteTitle = data.site.siteMetadata.title
     const skills = data.allMdx.edges
     const localSearchItems = data.localSearchItems
+    const background = data.backgroundImage.childImageSharp;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All skills" />
-        {/* <Bio /> */}
+        <Navbar />
+        <Banner title="Expertises" background={background}/>
         <SearchSkills
           skills={skills}
           localSearchItems={localSearchItems}
@@ -60,6 +63,14 @@ export const pageQuery = graphql`
             description
           }
         }
+      }
+    }
+    backgroundImage: file (relativePath: { eq: "header-1.jpg" }){
+      relativePath
+      childImageSharp {
+          fluid (quality: 100){
+          ...GatsbyImageSharpFluid
+          }
       }
     }
   }

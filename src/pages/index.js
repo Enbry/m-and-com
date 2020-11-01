@@ -7,7 +7,6 @@ import SEO from "../components/seo"
 import Button from "../components/button"
 import Navbar from "../components/Navbar/navbar"
 import Carousel from "../components/Carousel/carousel"
-// import headerImg from "../assets/img/header-1.jpg"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAd, faUserFriends } from '@fortawesome/free-solid-svg-icons'
@@ -161,7 +160,7 @@ export const pageQuery = graphql`
       nodes {
           relativePath
           childImageSharp {
-              fluid (maxWidth: 4000, quality: 100){
+              fluid (quality: 100){
               ...GatsbyImageSharpFluid
               }
           }
