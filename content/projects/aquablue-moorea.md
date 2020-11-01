@@ -13,7 +13,7 @@ missions:
   - text: Programmation des publication et mise en place des sponsoring
   - text: Bilan de fin de mois
 siteLink: http://fr.aquabluemoorea.com/
-clients: >
+clients: 
   Aquablue, une expérience hors du commun
 
   Une aventure unique en son genre & du fun ! Une excursion hors du commun qui utilise de jolis casques jaunes qui permettent à tous, oui je dis bien TOUS, de marcher sous l’eau en toute sécurité.

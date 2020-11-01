@@ -5,10 +5,11 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Breadcrumb from "../components/Breadcrumb/breadcrumb"
+import Img from "gatsby-image"
 import Navbar from "../components/Navbar/navbar"
-import '../styles/article.scss';
+import '../styles/projects.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarAlt, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 class ProjectsPostTemplate extends React.Component {
   render() {
     const project = this.props.data.mdx
@@ -23,21 +24,47 @@ class ProjectsPostTemplate extends React.Component {
         />
         <Navbar/>
         <div className="project">
-          <Breadcrumb title={`${project.frontmatter.title.slice(0,50)}...`} link="/projects" page="Réalisations"/>
+          <Breadcrumb title={`${project.frontmatter.title.slice(0,50)}`} link="/projects" page="Réalisations"/>
 
         <div className="project-container">
           <div className="project-content">
             <div className="project-item">
-              <h1>{project.frontmatter.title}</h1>
-              <p
-                style={{display: `block`}}
-              >
-                {project.frontmatter.date}
-              </p>
-              <MDXRenderer>{project.body}</MDXRenderer>
+              <h2 className="project-itemTitle">{project.frontmatter.title}</h2>
+              <p className="project-itemHash">{project.frontmatter.subtitle}</p>
+              <h3 className="project-itemBrief">{project.frontmatter.brief}</h3>
+
+              <div className="project-itemMissions">
+                <h4 className="project-itemSubtitle">Missions</h4>
+                <ul className="project-itemMissionsList">
+                  {project.frontmatter.missions.map(mission => {
+                    return(
+                      <li className="project-itemMissionsListItem">
+                       <FontAwesomeIcon icon={faChevronRight} className="project-itemMissionsListItemIcon"/>
+                        {mission.text}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+
+              <div className="project-itemClients">
+                <h4 className="project-itemSubtitle">Le client</h4>
+                {project.frontmatter.clients}
+                {/* <MDXRenderer>{project.frontmatter.clients}</MDXRenderer> */}
+              </div>
+
+              <div className="project-itemLinks">
+                <h4 className="project-itemSubtitle">Liens</h4>
+                  {project.frontmatter.links}
+                  {/* <MDXRenderer>{project.frontmatter.links}</MDXRenderer> */}
+              </div>
             </div>
           </div>
-          <div className="project-sidebar"></div>
+          <div className="project-pictures">
+            <div className="project-picturesItem">
+              <Img fluid={project.frontmatter.images[0].image.childImageSharp.fluid}/>
+            </div>
+          </div>
         </div>
 
         <ul className="project-navigation">
@@ -90,8 +117,25 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        subtitle
         date(formatString: "MMMM DD, YYYY")
         description
+        brief
+        clients
+        images{
+          image {
+            childImageSharp {
+              fluid (maxWidth: 4000, quality: 100){
+              ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        missions{
+          text
+        }
+        medias
+        links
       }
     }
   }

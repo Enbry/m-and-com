@@ -15,7 +15,6 @@ class Projects extends React.Component {
     const localSearchItems = data.localSearchItems
     const background = data.backgroundImage.childImageSharp;
 
-    // console.log(projects);
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All projects" />
