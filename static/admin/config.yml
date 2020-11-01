@@ -58,17 +58,15 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: description, label: Description }
-      - { name: body, label: Body, widget: markdown }
+      - { name: description, label: Description, required: false }
       - {
-        name: image,
+        name: images,
         label: Image,
-        widget: object,
+        widget: list,
         fields:
           [
-            { name: image, label: Image, widget: image },
-            { name: imageAlt, label: Image Description, widget: string },
-          ],
+            { name: image, label: Image, required: true, widget: image }
+          ]
       }
       - {
         name: missions,
