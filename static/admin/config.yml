@@ -97,4 +97,4 @@ collections:
         name: links,
         required: false,
         widget: markdown
-      },
+      }
