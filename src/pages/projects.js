@@ -7,7 +7,6 @@ import Button from "../components/button"
 import SearchProjects from "../components/searchProjects"
 import Navbar from "../components/Navbar/navbar"
 import Banner from "../components/Banner/banner"
-// import bannerBg from ""
 class Projects extends React.Component {
   render() {
     const { data, navigate, location } = this.props
