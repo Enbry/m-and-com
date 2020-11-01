@@ -26,6 +26,22 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        articles: allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { glob: "**/content/articles/*.md" } }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
         skills: allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           filter: { fileAbsolutePath: { glob: "**/content/skills/*.md" } }
@@ -65,10 +81,25 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create blog posts pages.
+    const articles = result.data.articles.edges
     const posts = result.data.posts.edges
     const skills = result.data.skills.edges
     const projects = result.data.projects.edges
+
+    articles.forEach((article, index) => {
+      const previous = index === articles.length - 1 ? null : articles[index + 1].node
+      const next = index === 0 ? null : articles[index - 1].node
+
+      createPage({
+        path: `blog${article.node.fields.slug}`,
+        component: articlesPost,
+        context: {
+          slug: article.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+    });
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
