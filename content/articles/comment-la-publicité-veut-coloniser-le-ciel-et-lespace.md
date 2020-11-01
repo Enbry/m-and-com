@@ -7,4 +7,4 @@ image:
   imageAlt: publicité coloniser ciel espace
   image: ../assets/pubciel.jpg
 ---
-Le ciel deviendra-t-il un jour un vaste espace publicitaire ? En tout cas, des entreprises planchent d'ores déjà sur des panneaux publicitaires volants et des satellites "événementiels" capables d'afficher des messages commerciaux depuis l'espace.
+Le ciel deviendra-t-il un jour un vaste espace publicitaire ? En tout cas, des entreprises planchent d'ores déjà sur des panneaux publicitaires volants et des satellites "événementiels" capables d'afficher des messages commerciaux depuis l'espace. 
