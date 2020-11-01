@@ -75,6 +75,7 @@ const AllPosts = ({ posts }) => (
       const title = node.frontmatter.title || node.fields.slug
       return (
         <div key={node.fields.slug}>
+
           <h3>
             <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
               {title}

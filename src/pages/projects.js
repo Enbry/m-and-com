@@ -15,6 +15,7 @@ class Projects extends React.Component {
     const localSearchItems = data.localSearchItems
     const background = data.backgroundImage.childImageSharp;
 
+    // console.log(projects);
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All projects" />
@@ -26,9 +27,6 @@ class Projects extends React.Component {
           navigate={navigate}
           location={location}
         />
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
       </Layout>
     )
   }
@@ -61,6 +59,15 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            images{
+              image {
+                childImageSharp {
+                  fluid (maxWidth: 4000, quality: 100){
+                  ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
           }
         }
       }

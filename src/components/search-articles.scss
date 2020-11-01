@@ -26,7 +26,7 @@
             transition: all 0.3s ease-in-out;
 
             &:hover{
-                color: $green;
+                color: $red;
             }
         }
 
@@ -39,7 +39,7 @@
 
             &Icon{
                 margin-right: 10px;
-                color: $green;
+                color: $red;
                 font-size: 20px;
             }
         }
