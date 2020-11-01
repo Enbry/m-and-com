@@ -16,7 +16,6 @@ class ArticlesPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    console.log(article);
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -24,8 +23,8 @@ class ArticlesPostTemplate extends React.Component {
           description={article.frontmatter.description || article.excerpt}
         />
         <Navbar/>
+        <Breadcrumb title={`${article.frontmatter.title.slice(0,50)}...`} link="/articles" page="Actualités"/>
         <div className="article">
-          <Breadcrumb title={`${article.frontmatter.title.slice(0,50)}...`} link="/articles" page="Actualités"/>
           <div className="article-container">
             <div className="article-content">
               <div className="article-item">

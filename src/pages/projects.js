@@ -26,9 +26,6 @@ class Projects extends React.Component {
           navigate={navigate}
           location={location}
         />
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
       </Layout>
     )
   }
@@ -61,6 +58,15 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            images{
+              image {
+                childImageSharp {
+                  fluid (maxWidth: 4000, quality: 100){
+                  ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
           }
         }
       }

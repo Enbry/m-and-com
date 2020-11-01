@@ -1,7 +1,9 @@
 @import "../../styles/generic.scss";
 
 .breadcrumb{
-    padding: 45px 0 12px;
+    margin-top: 90px;
+    padding: 45px 0 12px 10%;
+    background-color: $background-gray;
 
     &-list{
         padding-inline-start: 0;
@@ -17,7 +19,7 @@
              font-weight: 800;
 
             &:hover{
-                color: $green;
+                color: $red;
             }
             
         }
