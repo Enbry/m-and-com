@@ -4,6 +4,8 @@ date: 2020-11-01T19:30:51.088Z
 title: Brochures corporate
 subtitle: " #gestiondeprojet #print #redaction #naming"
 brief: Création, rédaction et impression d’une brochure de présentation corporate
+images:
+  - image: ../assets/8eciel__brochure-03.jpg
 missions:
   - text: "Prise de brief : Déterminer les besoins, envies du client : réalisation
       d’une brochure qualitative unique"
