@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
@@ -38,6 +39,7 @@ module.exports = {
                 frontmatter {
                   title
                   description
+                  icon
                   date(formatString: "MMMM DD, YYYY")
                 }
               }
