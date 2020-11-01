@@ -28,7 +28,7 @@ collections:
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
       - { name: process, label: Process, widget: markdown }
-      - { name: icon, label: Icone, widget: string }
+      - { name: icon, label: Icone }
   - name: projects
     label: Projects
     description: Projects

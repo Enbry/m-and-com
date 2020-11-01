@@ -57,6 +57,7 @@ module.exports = {
             rawBody: node.rawBody,
             excerpt: node.excerpt,
             title: node.frontmatter.title,
+            icon: node.frontmatter.icon,
             description: node.frontmatter.description,
             date: node.frontmatter.date,
           })),
