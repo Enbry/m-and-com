@@ -8,6 +8,8 @@ import Button from "../components/button"
 import Navbar from "../components/Navbar/navbar"
 import headerImg from "../assets/img/header-1.jpg"
 import Image from "gatsby-image"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const Skills = ({skills}) => (
   <div className="home-skills">
@@ -15,9 +17,11 @@ const Skills = ({skills}) => (
       return (
         <div key={node.fields.slug}>
           <h6>{node.frontmatter.title}</h6>
-          <Image
-              fluid={node.frontmatter.icon.childImageSharp.fluid}
-            />
+          <FontAwesomeIcon icon={faCoffee} />
+          <img src={node.frontmatter.icon} />
+          {/* <Image
+            fluid={node.frontmatter.icon.childImageSharp.fluid}
+          /> */}
         </div>
       )
     })}
@@ -107,11 +111,12 @@ export const pageQuery = graphql`
             title
             description
             icon {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              id
+              # childImageSharp {
+              #   fluid(maxWidth: 800) {
+              #     ...GatsbyImageSharpFluid
+              #   }
+              # }
             }
           }
         }

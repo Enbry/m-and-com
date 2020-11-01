@@ -18,6 +18,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-fontawesome-css`,
     {
       resolve: "gatsby-plugin-local-search",
       options: {
@@ -41,6 +42,7 @@ module.exports = {
                   description
                   icon {
                     id
+                    icone
                   }
                   date(formatString: "MMMM DD, YYYY")
                 }
