@@ -3,7 +3,7 @@ path: Site B&C France
 date: 2020-11-01T19:18:45.889Z
 title: Site B&C France
 subtitle: "#gestiondeprojet #print #redaction #naming"
-brief: "Animer la communauté Facebook de la page Aquablue Moorea "
+brief: ""
 images:
   - image: ../assets/bc-france-799x1024.png
 missions:
