@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchArticles from "../components/searchArticles"
+import Navbar from "../components/Navbar/navbar"
+import Banner from "../components/Banner/banner"
 
 class Articles extends React.Component {
   render() {
@@ -12,12 +14,13 @@ class Articles extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const articles = data.allMdx.edges
     const localSearchItems = data.localSearchItems
-
-    console.log(articles);
+    const background = data.backgroundImage.childImageSharp;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All articles" />
+        <Navbar />
+        <Banner title="Actualités" background={background}/>
         <SearchArticles
           articles={articles}
           localSearchItems={localSearchItems}
@@ -71,6 +74,14 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    backgroundImage: file (relativePath: { eq: "header-3.jpg" }){
+      relativePath
+      childImageSharp {
+          fluid (quality: 100){
+          ...GatsbyImageSharpFluid
+          }
       }
     }
   }

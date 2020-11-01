@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { useFlexSearch } from "react-use-flexsearch"
 import * as queryString from "query-string"
-import Navbar from "./Navbar/navbar"
 
 const SearchBar = styled.div`
   display: flex;
@@ -105,7 +104,6 @@ const SearchProjects = ({ projects, localSearchItems, location, navigate }) => {
 
   return (
     <>
-      <Navbar />
       <SearchBar>
         <svg
           focusable="false"
