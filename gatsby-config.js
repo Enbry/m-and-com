@@ -40,6 +40,7 @@ module.exports = {
                 frontmatter {
                   title
                   description
+                  icon
                   date(formatString: "MMMM DD, YYYY")
                 }
               }
