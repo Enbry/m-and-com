@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { useFlexSearch } from "react-use-flexsearch"
 import * as queryString from "query-string"
 import Navbar from "./Navbar/navbar"
+import Img from "gatsby-image"
 
 const SearchBar = styled.div`
   display: flex;
@@ -51,10 +52,12 @@ const SearchedArticles = ({ results }) =>
       return (
         <div key={slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/articles${slug}`}>
               {title}
             </Link>
           </h3>
+          <Img fluid={node.image.image.childImageSharp.fluid} />
+
           <small>{date}</small>
           <p
             dangerouslySetInnerHTML={{
@@ -77,10 +80,12 @@ const AllArticles = ({ articles }) => (
       return (
         <div key={node.fields.slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/articles${node.fields.slug}`}>
               {title}
             </Link>
           </h3>
+          <Img fluid={node.frontmatter.image.image.childImageSharp.fluid} />
+
           <small>{node.frontmatter.date}</small>
           <p
             dangerouslySetInnerHTML={{

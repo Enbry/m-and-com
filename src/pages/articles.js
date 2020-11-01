@@ -13,6 +13,8 @@ class Articles extends React.Component {
     const articles = data.allMdx.edges
     const localSearchItems = data.localSearchItems
 
+    console.log(articles);
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All articles" />
@@ -57,6 +59,16 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            image {
+              imageAlt
+              image {
+                childImageSharp {
+                    fluid (maxWidth: 4000, quality: 100){
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+              }
+            }
           }
         }
       }

@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +12,7 @@ class ArticlesPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
+    console.log(article);
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -18,6 +20,7 @@ class ArticlesPostTemplate extends React.Component {
           description={article.frontmatter.description || article.excerpt}
         />
         <h1>{article.frontmatter.title}</h1>
+        <Img fluid={article.frontmatter.image.image.childImageSharp.fluid} />
         <p
           style={{display: `block`}}
         >
@@ -73,6 +76,16 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          imageAlt
+            image {
+              childImageSharp {
+                  fluid (maxWidth: 4000, quality: 100){
+                  ...GatsbyImageSharpFluid
+                  }
+              }
+            }
+        }
       }
     }
   }
