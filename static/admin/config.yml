@@ -58,7 +58,8 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: description, label: Description, required: false }
+      - { name: subtitle, label: Subtitle, required: false }
+      - { name: brief, label: Brief, required: false }
       - {
         name: images,
         label: Image,
@@ -82,22 +83,18 @@ collections:
       - {
         label: Clients,
         name: clients,
-        required: true,
-        widget: list,
-        fields:
-          [
-            { name: title, label: Title, required: true, widget: string },
-            { name: description, label: Description, required: true, widget: string },
-            {
-              label: Liens,
-              name: links,
-              required: false,
-              widget: list,
-              fields:
-                [
-                  { name: siteLink, label: Site Link, widget: string },
-                  { name: linkedInLink, label: LinkedIn Link, widget: string },
-                ],
-            },
-          ]
+        required: false,
+        widget: markdown,
       }
+      - {
+        label: Medias,
+        name: medias,
+        required: false,
+        widget: markdown,
+      }
+      - {
+        label: Liens,
+        name: links,
+        required: false,
+        widget: markdown
+      },
