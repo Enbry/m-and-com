@@ -17,10 +17,13 @@ clients: >
   de partir à la rencontre des merveilles de Tahiti (tortues, requins, dauphins,
   baleines ...etc ) avec leur tout nouveau Safari Aquatique de 4 heures avec des
   horaires décalés pour être "seuls au monde"
-medias: |
+medias: ""
+links: |-
   Facebook : @diveandseatahiti
-   
+
   Réalisé dans l’agence Chez Margot Communication
+
   Facebook : @ChezMargotCom
-  LinkedIn : https://www.linkedin.com/in/margothillion/
+
+  LinkedIn : <https://www.linkedin.com/in/margothillion/>
 ---
