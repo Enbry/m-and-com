@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Breadcrumb from "../components/Breadcrumb/breadcrumb"
 import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
 import '../styles/article.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -22,7 +23,7 @@ class ArticlesPostTemplate extends React.Component {
           title={article.frontmatter.title}
           description={article.frontmatter.description || article.excerpt}
         />
-        <Navbar/>
+        <Navbar position="top"/>
         <Breadcrumb title={`${article.frontmatter.title.slice(0,50)}...`} link="/articles" page="Actualités"/>
         <div className="article">
           <div className="article-container">
@@ -76,6 +77,8 @@ class ArticlesPostTemplate extends React.Component {
               </li>
             </ul>
         </div>
+        <Footer />
+
       </Layout>
     )
   }

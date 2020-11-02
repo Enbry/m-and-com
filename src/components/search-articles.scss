@@ -2,7 +2,8 @@
 
 .articles {
     display: flex;
-    margin: 70px 0 0 15%;
+    padding: 70px 0 0 15%;
+    background-color: $background-gray;
 
     &-search{
         width: 35%;

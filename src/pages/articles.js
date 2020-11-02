@@ -7,6 +7,7 @@ import Button from "../components/button"
 import SearchArticles from "../components/searchArticles"
 import Navbar from "../components/Navbar/navbar"
 import Banner from "../components/Banner/banner"
+import Footer from "../components/Footer/footer"
 
 class Articles extends React.Component {
   render() {
@@ -19,7 +20,7 @@ class Articles extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All articles" />
-        <Navbar />
+        <Navbar  position="top"/>
         <Banner title="Actualités" background={background}/>
         <SearchArticles
           articles={articles}
@@ -30,6 +31,8 @@ class Articles extends React.Component {
         <Link to="/">
           <Button marginTop="85px">Go Home</Button>
         </Link>
+        <Footer />
+
       </Layout>
     )
   }

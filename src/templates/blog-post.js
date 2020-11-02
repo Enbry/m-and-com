@@ -1,7 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-
+import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -51,6 +52,8 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+        <Footer />
+
       </Layout>
     )
   }

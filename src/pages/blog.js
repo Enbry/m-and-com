@@ -7,6 +7,8 @@ import Button from "../components/button"
 import SearchPosts from "../components/searchPosts"
 import Navbar from "../components/Navbar/navbar"
 import Banner from "../components/Banner/banner"
+import Footer from "../components/Footer/footer"
+
 class Blog extends React.Component {
   render() {
     const { data, navigate, location } = this.props
@@ -18,7 +20,7 @@ class Blog extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <Navbar />
+        <Navbar  position="top"/>
         <Banner title="Blog" background={background}/>
         <SearchPosts
           posts={posts}
@@ -29,6 +31,8 @@ class Blog extends React.Component {
         <Link to="/">
           <Button marginTop="85px">Go Home</Button>
         </Link>
+        <Footer />
+
       </Layout>
     )
   }

@@ -14,7 +14,6 @@ body {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: $body-dark;
   margin: 0;
-  // background-color: $background-gray;
 }
 
 a {
@@ -38,4 +37,8 @@ a {
 
 main {
   min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
+}
+
+textarea{
+  resize: none;
 }

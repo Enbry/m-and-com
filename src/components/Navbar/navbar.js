@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 import './navbar.scss';
 import logo from '../../assets/img/logo.png'
 
-const Navbar = () => (
-  <nav className="navbar">
+const Navbar = ({position}) => (
+  <nav className={`navbar ${position}`}>
     <div className="container navbar-container">
       <img className="navbar-logo" src={logo} alt="M and Com."/>
       <ul className="navbar-menu">

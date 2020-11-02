@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchProjects from "../components/searchProjects"
 import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
 import Banner from "../components/Banner/banner"
 class Projects extends React.Component {
   render() {
@@ -18,7 +19,7 @@ class Projects extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All projects" />
-        <Navbar />
+        <Navbar  position="top"/>
         <Banner title="Réalisations" background={background}/>
         <SearchProjects
           projects={projects}
@@ -26,6 +27,8 @@ class Projects extends React.Component {
           navigate={navigate}
           location={location}
         />
+        <Footer />
+        
       </Layout>
     )
   }
@@ -61,7 +64,7 @@ export const pageQuery = graphql`
             images{
               image {
                 childImageSharp {
-                  fluid (maxWidth: 4000, quality: 100){
+                  fluid (quality: 100){
                   ...GatsbyImageSharpFluid
                   }
                 }

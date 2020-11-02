@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { useFlexSearch } from "react-use-flexsearch"
 import * as queryString from "query-string"
-import Img from "gatsby-image"
 import './search-projects.scss';
 import BackgroundImage from 'gatsby-background-image'
 
@@ -49,12 +48,16 @@ const AllProjects = ({ projects }) => (
           <h2 className="projects-itemDesc">
               {title}
           </h2>
-          <BackgroundImage
-            fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
-            className="projects-itemBg"
-          >
-            
-          </BackgroundImage>
+          {
+            node.frontmatter.images[0].image && (
+            <BackgroundImage
+              fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
+              className="projects-itemBg"
+            >
+              
+            </BackgroundImage>
+            )
+          }
           </Link>
         </div>
       )

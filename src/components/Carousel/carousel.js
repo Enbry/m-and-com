@@ -2,28 +2,32 @@ import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import './carousel.scss'
 
-const Carousel = ({backgrounds}) => {
+const Carousel = ({items, slidesNb}) => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
+        speed: 300,
+        slidesToShow: slidesNb,
+        slidesToScroll: 1,
+        autoplay: true
       };
+      console.log(items)
 
       return(
-        <Slider {...settings}>
-            {backgrounds.map(image => (
-                <div key={image.childImageSharp.fluid.src}>
-                    <Img fluid={image.childImageSharp.fluid} />
+        <Slider {...settings} className="carousel">
+            {items.map(item => (
+                <div key={item.node.fields.slug}>
+                    <Img className="carouselImg" fluid={item.node.frontmatter.image.image.childImageSharp.fluid} />
+                    <h3 className="carouselTitle">{`${item.node.frontmatter.title.slice(0,60)}...`}</h3>
+                    <p className="carouselText">{item.node.excerpt}</p>
                 </div>
             ))}
         </Slider>
       )
 }
-
 
 export default Carousel

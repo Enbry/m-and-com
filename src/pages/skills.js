@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchSkills from "../components/searchSkills"
 import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
 import Banner from "../components/Banner/banner"
 class Skills extends React.Component {
   render() {
@@ -18,17 +19,16 @@ class Skills extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All skills" />
-        <Navbar />
+        <Navbar  position="top"/>
         <Banner title="Expertises" background={background}/>
         <SearchSkills
+          background={background}
           skills={skills}
           localSearchItems={localSearchItems}
           navigate={navigate}
           location={location}
         />
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
+        <Footer />
       </Layout>
     )
   }
@@ -53,7 +53,7 @@ export const pageQuery = graphql`
       ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100)
           fields {
             slug
           }

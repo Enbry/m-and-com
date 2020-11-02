@@ -7,6 +7,8 @@ import SEO from "../components/seo"
 import Breadcrumb from "../components/Breadcrumb/breadcrumb"
 import Img from "gatsby-image"
 import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
+
 import '../styles/projects.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -22,7 +24,7 @@ class ProjectsPostTemplate extends React.Component {
           title={project.frontmatter.title}
           description={project.frontmatter.description || project.excerpt}
         />
-        <Navbar/>
+        <Navbar position="top"/>
         <div className="project">
           <Breadcrumb title={`${project.frontmatter.title.slice(0,50)}`} link="/projects" page="Réalisations"/>
 
@@ -96,6 +98,8 @@ class ProjectsPostTemplate extends React.Component {
             </li>
           </ul>
         </div>
+        <Footer />
+
       </Layout>
     )
   }
