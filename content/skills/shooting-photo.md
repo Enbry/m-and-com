@@ -1,6 +1,6 @@
 ---
 path: Shooting photo
-date: 2020-11-02T10:05:22.930Z
+date: 2020-11-02T10:06:17.203Z
 title: Shooting photo
 description: Shooting photo
 process: >-
