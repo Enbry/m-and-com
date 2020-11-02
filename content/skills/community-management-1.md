@@ -16,7 +16,7 @@ process:
   - text: Enfin, un bilan mensuel avec les statistiques de l’audience de la page et
       des publications sera fourni afin d’ajuster si besoin les campagnes de
       sponsorisation le mois suivant.
-icon: comments
+icon: user-friends
 ---
 Afin de donner de la visibilité et du public à votre projet, un vecteur essentiel est celui qu’apporte l’audience des réseaux sociaux. Créer et animer une communauté sur le ou les réseaux adaptés aux cibles du projet permettent de toucher les internautes au cœur de leur quotidien autour de problématiques qui les intéressent à des moments bien définis.
 
