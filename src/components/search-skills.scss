@@ -1,0 +1,39 @@
+@import "../styles/generic.scss";
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 100px auto;
+
+    &-item{
+        flex: 1 0 calc(33% - 40px);
+        margin: 20px;
+        overflow: hidden;
+        position: relative;
+
+        &Img{
+            margin: 0 10px;
+            height: 170px;
+        }
+        
+       &Title{
+            margin: 30px 10px 15px;
+            font-size: 16px;
+            line-height: 1.5;
+       }
+
+       &Desc{
+            margin: 0 10px;
+            font-size: 14px;
+            color: $gray;
+            line-height: 2;
+       }
+
+       &Link{
+           color: $red;
+           margin: 15px 10px;
+       }
+        
+    }
+}

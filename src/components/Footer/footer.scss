@@ -1,0 +1,32 @@
+@import "../../styles/generic.scss";
+
+.footer{
+    background-color: $background-dark;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10%;
+
+    &Links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &Icon{
+            color: $white;
+            font-size: 20px;
+            padding: 0 15px;
+            transition: 0.3s ease-in-out all;
+
+            &:hover{
+                color: $red;
+            }
+        }
+    }
+
+    &Copyright{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+        color: $white;
+
+    }
+}
