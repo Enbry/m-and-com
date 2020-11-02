@@ -8,6 +8,11 @@ process:
       modèles et retouches souhaitées"
   - text: Fourniture d’un lien de téléchargement et d’une clé usb avec les photos
       sélectionnées et retouchées si nécessaire
+processus:
+  - text: "Définition des besoins : direction créative, nombre de clichés, lieux,
+      modèles et retouches souhaitées"
+  - text: Fourniture d’un lien de téléchargement et d’une clé usb avec les photos
+      sélectionnées et retouchées si nécessaire
 icon: camera
 ---
 Le bon cliché pour le bon support permettra de vous différencier de la concurrence et d’accentuer une identité propre et qualitative.
