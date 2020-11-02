@@ -11,6 +11,6 @@ process: >-
 
 
   off-site (code) : titre des pages, recherches et création des mots clés, description des pages, création de liens internes et externes
-icon: cloudscale
+icon: tachometer-alt
 ---
 Le SEO (Search Engine Optimization) est l’art d’optimiser un projet web et son environnement pour les moteurs de recherche (Google, Bing, Yahoo…). Plus communément appelé référencement naturel, son but est d’augmenter la qualité, la compréhension, mais surtout la visibilité d’un site internet au sein des résultats des moteurs de recherche.
