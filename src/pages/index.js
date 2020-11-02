@@ -10,7 +10,7 @@ import Footer from "../components/Footer/footer"
 import Carousel from "../components/Carousel/carousel"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAd, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import BackgroundSlider from 'gatsby-image-background-slider'
 import BackgroundImage from 'gatsby-background-image'
