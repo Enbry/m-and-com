@@ -12,6 +12,16 @@ process:
   - text: Choix de l’url et de la solution d’hébergement
   - text: Développement du site
   - text: Recette graphique et mise en ligne
+processus:
+  - text: "Étude de vos besoins en termes de contenus : vidéo, image, articles,
+      rubriques spécifiques"
+  - text: "Mise en place d’une maquette graphique selon l’identité visuelle et vos
+      envies : couleurs, effets…"
+  - text: Rédaction du contenu et déclinaisons graphiques des différentes pages du
+      site internet
+  - text: Choix de l’url et de la solution d’hébergement
+  - text: Développement du site
+  - text: Recette graphique et mise en ligne
 icon: laptop
 ---
 Une plateforme incontournable aux business d’aujourd’hui au vu de la place prépondérante que prend le digital dans le développement d’une marque.
