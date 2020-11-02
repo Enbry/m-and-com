@@ -14,6 +14,6 @@ process:
       l’image de votre projet.  Maître d'orchestre, gestionnaire des
       prestataires et organisateur des plannings, Chez Margot, à qui vous
       pourrez déléguer en toute confiance.
-icon: user-friends
+icon: comments
 ---
 Vous avez un projet, une idée, un rêve ? Mettez-le en œuvre avec les outils qui vous correspondent et adaptés à vos besoins.
