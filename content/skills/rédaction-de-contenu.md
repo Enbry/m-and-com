@@ -24,3 +24,9 @@ Discours de marque, brand content, storytelling, nous racontons votre histoire.
 Selon les cibles à atteindre, un ton, des expressions, un langage spécifique, une “special touch” sera créée à votre image.
 
 Si les gens achètent un produit ou un service, ils achètent avant tout une image et une histoire qu’ils laisseront entrer dans leur quotidien. C’est pourquoi il est important de les soigner, d’être cohérent et en adéquation avec leurs besoins, leurs envies et leurs rêves cachés, de bien connaître sa cible et de définir la manière dont votre marque leur parlera car cette image et cette histoire seront le cœur d’une belle histoire d’amour entre le monde - vos cibles - et la façon dont vous souhaitez le changer - votre business.
+
+Création d’une ligne éditoriale spécifique à la marque et aux supports sélectionnés.
+
+Validation des textes et du planning de diffusion.
+
+Traduction en anglais.
