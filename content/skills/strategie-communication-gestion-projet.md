@@ -27,6 +27,6 @@ process: >-
   * Les outils digitaux : site internet, campagne de référencement, campagne Google ads, SEO, animation des réseaux sociaux
 
   * Évènementiel : lancement commercial, dégustation
-icon: ad
+icon: comments
 ---
 Vous avez un projet, une idée, un rêve ? Mettez-le en œuvre avec les outils qui vous correspondent et adaptés à vos besoins.
