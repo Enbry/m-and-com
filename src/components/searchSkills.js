@@ -45,7 +45,6 @@ const SearchedSkills = ({ results }) =>
 const AllSkills = ({ skills, background }) => (
   <div className="skills">
     {skills.map(({ node }) => {
-      console.log(skills);
       const title = node.frontmatter.title || node.fields.slug
     
       return (

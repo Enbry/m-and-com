@@ -15,7 +15,6 @@ const Carousel = ({items, slidesNb}) => {
         slidesToScroll: 1,
         autoplay: true
       };
-      console.log(items)
 
       return(
         <Slider {...settings} className="carousel">

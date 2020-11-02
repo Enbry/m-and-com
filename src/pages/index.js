@@ -143,7 +143,7 @@ class IndexPage extends React.Component {
 
             <Articles articles={articles} />
             <div className="home-contact">
-              <h2 className="homeTitle">Contact</h2>
+              <h2 className="homeTitle big">Contact</h2>
               <div className="home-contactContent">
 
                 <div className="home-contactBlock">
@@ -155,7 +155,6 @@ class IndexPage extends React.Component {
                       <input className="home-contactFormInput" type="text" name="name" placeholder="Nom"/>
                     </label>
                     <label className="home-contactFormLabel">
-                      
                       <input className="home-contactFormInput" type="text" name="surname" placeholder="Prénom"/>
                     </label>
                     <label className="home-contactFormLabel">
@@ -164,13 +163,15 @@ class IndexPage extends React.Component {
                     <label className="home-contactFormLabel">
                       <textarea className="home-contactFormInput" rows="10" name="message" placeholder="Votre message"></textarea>
                     </label>
-                    <Button title="Envoyer" className="red" submit="true"></Button>
+                    <div className="home-contactCta">
+                      <Button title="Envoyer" className="red"  icon="true" submit="true"></Button>
+                    </div>
                   </form>
                 </div>
                 <div className="home-contactBlock">
                   <div className="home-contactMap">
                     <img className="home-contactMapImg" src={mapImg}></img>
-                    <h4>Coordonnées:</h4>
+                    <h4>Coordonnées</h4>
                     <div className="home-contactInformation">
                       <p>
                         <FontAwesomeIcon className="home-contactInformationIcon" icon="comments" />

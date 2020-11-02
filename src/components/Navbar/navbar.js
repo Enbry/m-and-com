@@ -6,7 +6,9 @@ import logo from '../../assets/img/logo.png'
 const Navbar = ({position}) => (
   <nav className={`navbar ${position}`}>
     <div className="container navbar-container">
+    <Link to="/" activeClassName="active">
       <img className="navbar-logo" src={logo} alt="M and Com."/>
+    </Link>
       <ul className="navbar-menu">
         <li className="navbar-menuItem">
           <Link to="/skills/" activeClassName="active">
