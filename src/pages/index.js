@@ -22,12 +22,9 @@ const Skills = ({skills}) => (
   <div className="home-skills">
     {skills.map(({ node }) => {
       return (
-        <div key={node.fields.slug}>
-          <h6>{node.frontmatter.title}</h6>
-          <FontAwesomeIcon icon={node.frontmatter.icon} />
-          {/* <Image
-            fluid={node.frontmatter.icon.childImageSharp.fluid}
-          /> */}
+        <div className="home-skillsItem" key={node.fields.slug}>
+          <FontAwesomeIcon className="home-skillsItemIcon" icon={node.frontmatter.icon} />
+          <h4>{node.frontmatter.title}</h4>
         </div>
       )
     })}
