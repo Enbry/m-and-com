@@ -41,6 +41,7 @@ const SearchedProjects = ({ results }) =>
 const AllProjects = ({ projects }) => (
   <div className="projects">
     {projects.map(({ node }) => {
+    console.log(projects);
       const title = node.frontmatter.title || node.fields.slug
     
       return (
@@ -49,12 +50,15 @@ const AllProjects = ({ projects }) => (
           <h2 className="projects-itemDesc">
               {title}
           </h2>
-          <BackgroundImage
-            fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
-            className="projects-itemBg"
-          >
-            
-          </BackgroundImage>
+          {
+            node.frontmatter.images[0].image && (
+              <BackgroundImage
+                fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
+                className="projects-itemBg"
+              >
+              </BackgroundImage>
+            )
+          }
           </Link>
         </div>
       )

@@ -62,7 +62,11 @@ class ProjectsPostTemplate extends React.Component {
           </div>
           <div className="project-pictures">
             <div className="project-picturesItem">
-              <Img fluid={project.frontmatter.images[0].image.childImageSharp.fluid}/>
+              {
+                project.frontmatter.images[0].image && (
+                  <Img fluid={project.frontmatter.images[0].image.childImageSharp.fluid}/>
+                )
+              }
             </div>
           </div>
         </div>
@@ -125,7 +129,7 @@ export const pageQuery = graphql`
         images{
           image {
             childImageSharp {
-              fluid (maxWidth: 4000, quality: 100){
+              fluid (quality: 100){
               ...GatsbyImageSharpFluid
               }
             }

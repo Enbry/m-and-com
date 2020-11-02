@@ -9,11 +9,11 @@ import Navbar from "../components/Navbar/navbar"
 import Carousel from "../components/Carousel/carousel"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAd, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import BackgroundSlider from 'gatsby-image-background-slider'
 
-library.add(faAd, faUserFriends);
+library.add(faAd, faUserFriends, faComments, faLaptop, faEdit, faEye, faCamera, faVideo, faTachometerAlt);
 
 const Skills = ({skills}) => (
   <div className="home-skills">
@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
         <Navbar />
         <section className="home">
           <header className="home-header">
-            {/* <Carousel backgrounds={backgrounds}/> */}
+            <Carousel backgrounds={backgrounds}/>
             {/* <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/> */}
           </header>
           
@@ -80,7 +80,16 @@ class IndexPage extends React.Component {
 
             <Skills skills={skills} />
             <Projects projects={projects} />
+            <div className="home-testimonials">
+
+            </div>
+            <div className="home-cta">
+              
+            </div>
             <Articles articles={articles} />
+            <div className="home-contact">
+
+            </div>
           </div>
         </section>
       </Layout>
