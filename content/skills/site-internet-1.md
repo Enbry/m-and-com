@@ -1,26 +1,17 @@
 ---
 path: Site internet
-date: 2020-11-02T09:49:39.040Z
+date: 2020-11-02T17:23:19.714Z
 title: Site internet
 description: Site internet
-process: >-
-  Étude de vos besoins en termes de contenus : vidéo, image, articles, rubriques
-  spécifiques
-
-
-  Mise en place d’une maquette graphique selon l’identité visuelle et vos envies : couleurs, effets…
-
-
-  Rédaction du contenu et déclinaisons graphiques des différentes pages du site internet
-
-
-  Choix de l’url et de la solution d’hébergement
-
-
-  Développement du site
-
-
-  Recette graphique et mise en ligne
+process:
+  - text: "Étude de vos besoins en termes de contenus : vidéo, image, articles,
+      rubriques spécifiques Mise en place d’une maquette graphique selon
+      l’identité visuelle et vos envies : couleurs, effets…"
+  - text: Rédaction du contenu et déclinaisons graphiques des différentes pages du
+      site internet
+  - text: Choix de l’url et de la solution d’hébergement
+  - text: Développement du site
+  - text: Recette graphique et mise en ligne
 icon: laptop
 ---
 Une plateforme incontournable aux business d’aujourd’hui au vu de la place prépondérante que prend le digital dans le développement d’une marque.
