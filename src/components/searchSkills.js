@@ -6,6 +6,10 @@ import * as queryString from "query-string"
 import './search-skills.scss';
 import BackgroundImage from 'gatsby-background-image'
 import Img from "gatsby-image"
+import { faChevronRight, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(faChevronRight, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo);
 
 const SearchedSkills = ({ results }) =>
   results.length > 0 ? (
@@ -43,12 +47,12 @@ const AllSkills = ({ skills, background }) => (
     {skills.map(({ node }) => {
       console.log(skills);
       const title = node.frontmatter.title || node.fields.slug
-      console.log(background);
     
       return (
         <div className="skills-item"  key={node.fields.slug}>
-          <Link style={{ boxShadow: `none` }} to={`/skills${node.fields.slug}`}>
-            <Img fluid={background.fluid} />
+          <Link className="skills-itemBlock" style={{ boxShadow: `none` }} to={`/skills${node.fields.slug}`}>
+            {/* <Img fluid={background.fluid} /> */}
+            <FontAwesomeIcon className="skills-itemIcon" icon={node.frontmatter.icon} />
             
             <h2 className="skills-itemTitle">
               {title}
@@ -56,7 +60,10 @@ const AllSkills = ({ skills, background }) => (
             <p className="skills-itemDesc">
               {node.excerpt}
             </p>
-            <h4 className="skills-itemLink">En savoir plus</h4>
+            <h4 className="skills-itemLink">
+              <FontAwesomeIcon icon={faChevronRight} className="skills-itemLinkIcon"/>
+              En savoir plus
+            </h4>
           </Link>
         </div>
       )

@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
+import Button from "../components/Button/button"
 import SearchProjects from "../components/searchProjects"
 import Navbar from "../components/Navbar/navbar"
 import Footer from "../components/Footer/footer"

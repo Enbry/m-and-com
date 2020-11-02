@@ -6,6 +6,19 @@
     width: 70%;
     margin: 100px auto;
 
+    &Title{
+        font-weight: normal;
+        text-align: center;
+        line-height: 2;
+        width: 90%;
+        margin-bottom: 90px;
+        margin: 0 auto 90px;
+    }
+    
+    &Emphasize{
+        font-weight: $bold;
+    }
+
     &-item{
         flex: 1 0 33%;
         overflow: hidden;

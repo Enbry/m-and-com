@@ -8,50 +8,92 @@
     }
 
 
-    &Subtitle{
-        font-size: 30px;
-        margin-bottom: 85px;
-
+    &Title{
+        font-size: 40px;
+        // margin-bottom: 85px;
+        text-align: center;
+        margin: 0;
         &.white{
             color: $white;
         }
+        &.big{
+            font-size: 45px;
+        }
+    }
+
+    &Subtitle{
+        text-align: center;
+        font-weight: $medium;
+        color: $gray;
+        margin: 0;
     }
 
     &-skills{
         width: 80%;
+        margin-top: 80px;
         margin: auto;
         padding: 110px 0 60px 0;
-        display: flex;
-        flex-wrap: wrap;
-        // align-items: center;
-        justify-content: center;
-
-        &Item{
+        
+        &Content{
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1 1 20%;
-            text-align: center;
-            max-width: 20%;
-            line-height: 1.5;
-            margin-bottom: 50px;
-            
-            &Icon {
-                font-size: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 100px;
+    
+            &Item{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1 1 20%;
+                text-align: center;
+                max-width: 20%;
+                line-height: 1.5;
+                margin-bottom: 50px;
+                
+                &Icon {
+                    font-size: 50px;
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        color: $red;
+                    }
+                }
+    
+                &Title{
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        color: $red;
+                    }
+                }
             }
+            
+        }
+        &Cta{
+            display: flex;
+            justify-content: center;
         }
     }
 
     &-projects{
         display: flex;
         flex-wrap: wrap;
-        margin: 100px 0;
+        margin: 100px auto;
+        width: 70%;
+
+        &Title{
+            font-weight: normal;
+            text-align: center;
+            line-height: 2;
+        }
+        
+        &Emphasize{
+            font-weight: $bold;
+        }
     
         &Item{
             flex: 1 0 calc(33% - 40px);
             overflow: hidden;
             position: relative;
-            margin: 0 20px;
+            margin: 20px;
 
             &:before {
                 content: '';
@@ -118,12 +160,18 @@
     }
 
     &-cta{
-        padding: 100px 0;
+        padding: 100px 20%;
         position: relative;
         display: flex;
         align-items: center;
         flex-direction: column;
         overflow: hidden;
+
+        p{
+            color: $white;
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
         &Bg{
             position: absolute;
@@ -140,6 +188,16 @@
         flex-direction: column;
         width: 80%;
         margin: auto;
+
+        &Content{
+            margin-top: 80px;
+            width: 100%;
+        }
+
+        &Cta{
+            margin-top: 130px;
+            // align-self: flex-end;
+        }
     }
 
     &-contact{
@@ -147,13 +205,15 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        background-color: $background-light;
+        background-color: $background-gray;
 
         &Content{
             display: flex;
+            margin-top: 80px;
         }
 
         &Block{
+            margin: 0 3%;
             flex: 1 1 50%;
         }
 
@@ -174,6 +234,21 @@
                     font-family: 'Montserrat';
                 }
             }
+        }
+
+        &Map{
+            &Img{
+                width: 100%;
+            }
+        }
+
+        &Information{
+
+            &Icon{
+                color: $red;
+                padding-right: 10px;
+            }
+
         }
     }
 }

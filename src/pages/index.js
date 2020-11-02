@@ -4,35 +4,50 @@ import '../styles/index.scss';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
+import Button from "../components/Button/button"
 import Navbar from "../components/Navbar/navbar"
 import Footer from "../components/Footer/footer"
 import Carousel from "../components/Carousel/carousel"
+import mapImg from "../assets/map.png"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import BackgroundSlider from 'gatsby-image-background-slider'
 import BackgroundImage from 'gatsby-background-image'
 import Img from "gatsby-image"
 
-library.add(faAd, faUserFriends);
+library.add(faPhone, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo);
 
 const Skills = ({skills}) => (
   <div className="home-skills">
-    {skills.map(({ node }) => {
-      return (
-        <div className="home-skillsItem" key={node.fields.slug}>
-          <FontAwesomeIcon className="home-skillsItemIcon" icon={node.frontmatter.icon} />
-          <h4>{node.frontmatter.title}</h4>
+    <h2 className="homeTitle big">9 expertises</h2>
+    <h2 className="homeSubtitle">à votre service</h2>
+      <div className="home-skillsContent">
+
+        {skills.map(({ node }) => {
+          return (
+            <Link key={node.fields.slug} className="home-skillsContentItem" to={`/skills${node.fields.slug}`}>
+              <FontAwesomeIcon className="home-skillsContentItemIcon" icon={node.frontmatter.icon} />
+              <h4 className="home-skillsContentItemTitle">{node.frontmatter.title}</h4>
+            </Link>   
+          )
+        })}
+      </div>
+        <div className="home-skillsCta">
+          <Link to="/skills/">
+            <Button title="En savoir plus" className="purple" icon="true"></Button>
+          </Link>
         </div>
-      )
-    })}
   </div>
 )
 
 const Projects = ({projects}) => (
   <div className="home-projects">
+    <h3 className="home-projectsTitle">
+    De la <span className="home-projectsEmphasize">création de marque</span> à son <span className="home-projectsEmphasize">identité visuelle</span> & ses <span className="home-projectsEmphasize">outils de communication dédiés</span>,
+    en passant par la <span className="home-projectsEmphasize">rédaction du discours de votre marque</span> adaptée à tous les supports, à la <span className="home-projectsEmphasize">mise en œuvre d’un plan de communication</span> et de diffusion adapté, Chez Margot communication développera LA com’ qu’il vous faut.
+    </h3>
     {projects.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug
       return (
@@ -59,8 +74,15 @@ const Projects = ({projects}) => (
 
 const Articles = ({articles}) => (
   <div className="home-articles">
-    <h2 className="homeSubtitle">Les articles qu'il ne fallait pas manquer</h2>
-    <Carousel items={articles} slidesNb={3}/>
+    <h2 className="homeTitle">Les articles qu'il ne fallait pas manquer</h2>
+    <div className="home-articlesContent">
+      <Carousel items={articles} slidesNb={3}/>
+    </div>
+    <div className="home-articlesCta">
+      <Link to="/articles/">
+        <Button title="Voir tous les articles" className="purple" icon="true"></Button>
+      </Link>
+    </div>
     
     {/* {articles.map(({ node }) => {
       const articlesBg = [];
@@ -100,21 +122,28 @@ class IndexPage extends React.Component {
           <div>
 
             <Skills skills={skills} />
-            <Projects projects={projects} />
-            <div className="home-testimonials">
-              <h2 className="homeSubtitle">Ils nous ont fait confiance</h2>
-              
-            </div>
+
             <div className="home-cta">
-              <h2 className="homeSubtitle white">Un projet à concrétiser ?</h2>
+              <h2 className="homeTitle white">Un projet à concrétiser ?</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
               <div className="home-ctaBg">
                 <Img fluid={data.gradient.childImageSharp.fluid}></Img>
               </div>
-              <Button>En savoir plus</Button>
+              <Link to="/contact/" activeClassName="active">
+                  <Button title="Parlons de votre projet" className="purple no-border"></Button>
+              </Link>
             </div>
+
+            <Projects projects={projects} />
+            {/* <div className="home-testimonials">
+              <h2 className="homeTitle">Ils nous ont fait confiance</h2>
+              
+            </div> */}
+            
+
             <Articles articles={articles} />
             <div className="home-contact">
-              <h2 className="homeSubtitle">Contact</h2>
+              <h2 className="homeTitle">Contact</h2>
               <div className="home-contactContent">
 
                 <div className="home-contactBlock">
@@ -135,13 +164,23 @@ class IndexPage extends React.Component {
                     <label className="home-contactFormLabel">
                       <textarea className="home-contactFormInput" rows="10" name="message" placeholder="Votre message"></textarea>
                     </label>
-                    <button type="submit">Send</button>
+                    <Button title="Envoyer" className="red" submit="true"></Button>
                   </form>
                 </div>
                 <div className="home-contactBlock">
-                
                   <div className="home-contactMap">
-                    
+                    <img className="home-contactMapImg" src={mapImg}></img>
+                    <h4>Coordonnées:</h4>
+                    <div className="home-contactInformation">
+                      <p>
+                        <FontAwesomeIcon className="home-contactInformationIcon" icon="comments" />
+                        contact@margothillion.com
+                      </p>
+                      <p>
+                        <FontAwesomeIcon className="home-contactInformationIcon" icon="phone" />
+                        89 53 26 28
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

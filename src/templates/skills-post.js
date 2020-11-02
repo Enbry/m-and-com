@@ -28,7 +28,7 @@ class SkillsPostTemplate extends React.Component {
         />
         <Navbar position="top"/>
         <div className="skill">
-          <Breadcrumb title={`${skill.frontmatter.title.slice(0,50)}`} link="/skills" page="Réalisations"/>
+          <Breadcrumb title={skill.frontmatter.title} link="/skills" page="Expertises"/>
 
         <div className="skill-container">
           <div className="skill-content">
@@ -36,9 +36,10 @@ class SkillsPostTemplate extends React.Component {
               <h2 className="skill-itemTitle">{skill.frontmatter.title}</h2>
               <p className="skill-itemHash">{skill.frontmatter.subtitle}</p>
               {/* <h3 className="skill-itemBrief">{skill.frontmatter.brief}</h3> */}
+              <MDXRenderer>{skill.body}</MDXRenderer>
 
               <div className="skill-itemMissions">
-                <h4 className="skill-itemSubtitle">Missions</h4>
+                <h4 className="skill-itemSubtitle">Process</h4>
                 {/* <ul className="skill-itemMissionsList">
                   {skill.frontmatter.missions.map(mission => {
                     return(
@@ -49,18 +50,6 @@ class SkillsPostTemplate extends React.Component {
                     )
                   })}
                 </ul> */}
-              </div>
-
-              <div className="skill-itemClients">
-                <h4 className="skill-itemSubtitle">Le client</h4>
-                {/* {skill.frontmatter.clients} */}
-                {skill.frontmatter.process}
-              </div>
-
-              <div className="skill-itemLinks">
-                <h4 className="skill-itemSubtitle">Liens</h4>
-                  {skill.frontmatter.links}
-                  {/* <MDXRenderer>{skill.frontmatter.links}</MDXRenderer> */}
               </div>
             </div>
           </div>
@@ -82,7 +71,7 @@ class SkillsPostTemplate extends React.Component {
                 <Link className="skill-navigationLink" to={`/skills${previous.fields.slug}`} rel="previous">
                   <FontAwesomeIcon icon={faArrowLeft} className="skill-navigationIcon previous"/>
                   <div className="skill-navigationItem previous">
-                    <p className="skill-navigationItemTitle">{`${previous.frontmatter.title.slice(0,30)}...`}</p>
+                    <p className="skill-navigationItemTitle">{previous.frontmatter.title}</p>
                     {/* <p className="skill-navigationItemText">Précédent</p> */}
                   </div>
                 </Link>
@@ -94,7 +83,7 @@ class SkillsPostTemplate extends React.Component {
                 <>
                   <Link className="skill-navigationLink" to={`/skills${next.fields.slug}`} rel="next">
                     <div className="skill-navigationItem next">
-                      <p className="skill-navigationItemTitle">{`${next.frontmatter.title.slice(0,30)}...`}</p>
+                      <p className="skill-navigationItemTitle">{next.frontmatter.title}</p>
                       {/* <p className="skill-navigationItemText">Suivant</p> */}
                     </div>
                     <FontAwesomeIcon icon={faArrowRight} className="skill-navigationIcon next"/>
@@ -130,11 +119,12 @@ export const pageQuery = graphql`
         subtitle
         date(formatString: "MMMM DD, YYYY")
         description
-        process
+        brief
+        clients
         images{
           image {
             childImageSharp {
-              fluid (quality: 100){
+              fluid (maxWidth: 4000, quality: 100){
               ...GatsbyImageSharpFluid
               }
             }

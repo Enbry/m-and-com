@@ -39,6 +39,10 @@ const SearchedProjects = ({ results }) =>
 
 const AllProjects = ({ projects }) => (
   <div className="projects">
+    <h3 className="projectsTitle">
+    De la <span className="projectsEmphasize">création de marque</span> à son <span className="projectsEmphasize">identité visuelle</span> & ses <span className="projectsEmphasize">outils de communication dédiés</span>,
+    en passant par la <span className="projectsEmphasize">rédaction du discours de votre marque</span> adaptée à tous les supports, à la <span className="projectsEmphasize">mise en œuvre d’un plan de communication</span> et de diffusion adapté, Chez Margot communication développera LA com’ qu’il vous faut.
+    </h3>
     {projects.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug
     

@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
+import Button from "../components/Button/button"
 import SearchPosts from "../components/searchPosts"
 import Navbar from "../components/Navbar/navbar"
 import Banner from "../components/Banner/banner"
@@ -28,9 +28,6 @@ class Blog extends React.Component {
           navigate={navigate}
           location={location}
         />
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
         <Footer />
 
       </Layout>

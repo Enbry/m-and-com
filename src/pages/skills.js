@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
+import Button from "../components/Button/button"
 import SearchSkills from "../components/searchSkills"
 import Navbar from "../components/Navbar/navbar"
 import Footer from "../components/Footer/footer"
@@ -61,6 +61,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            icon
           }
         }
       }
