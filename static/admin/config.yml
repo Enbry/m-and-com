@@ -16,6 +16,16 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+      - {
+        name: image,
+        label: Image,
+        widget: object,
+        fields:
+          [
+            { name: image, label: Image, widget: image },
+            { name: imageAlt, label: Image Description, widget: string },
+          ],
+      }
   - name: articles
     label: Articles
     folder: content/articles
@@ -48,7 +58,7 @@ collections:
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
       - {
-        name: process,
+        name: processus,
         label: Process,
         required: true,
         widget: list,
