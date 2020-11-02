@@ -8,6 +8,7 @@ import Breadcrumb from "../components/Breadcrumb/breadcrumb"
 import Img from "gatsby-image"
 import Navbar from "../components/Navbar/navbar"
 import Footer from "../components/Footer/footer"
+import Button from "../components/Button/button"
 
 import '../styles/skills.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -38,17 +39,22 @@ class SkillsPostTemplate extends React.Component {
 
               <div className="skill-itemMissions">
                 <h4 className="skill-itemSubtitle">Process</h4>
-                {/* <ul className="skill-itemMissionsList">
-                  {skill.frontmatter.missions.map(mission => {
+                <ul className="skill-itemMissionsList">
+                  {skill.frontmatter.processus.map(process => {
                     return(
                       <li className="skill-itemMissionsListItem">
                        <FontAwesomeIcon icon={faChevronRight} className="skill-itemMissionsListItemIcon"/>
-                        {mission.text}
+                        {process.text}
                       </li>
                     )
                   })}
-                </ul> */}
+                </ul>
               </div>
+              <Link to="/contact/">
+                <div className="skill-cta">
+                  <Button title="Parlons de votre projet" className="purple"></Button>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="skill-pictures">
@@ -117,8 +123,9 @@ export const pageQuery = graphql`
         subtitle
         date(formatString: "MMMM DD, YYYY")
         description
-        brief
-        clients
+        processus{
+          text
+        }
         images{
           image {
             childImageSharp {

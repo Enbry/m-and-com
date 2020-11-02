@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery} from "gatsby"
+import { Link} from "gatsby"
 import '../styles/index.scss';
 
 import Layout from "../components/layout"
@@ -9,36 +9,47 @@ import Navbar from "../components/Navbar/navbar"
 import Footer from "../components/Footer/footer"
 import Carousel from "../components/Carousel/carousel"
 import mapImg from "../assets/map.png"
+import slide0 from "../assets/bg/header-1.jpg"
+import slide1 from "../assets/bg/header-2.jpg"
+import slide2 from "../assets/bg/header-3.jpg"
+import slide3 from "../assets/bg/header-4.jpg"
 import Image from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faMouse, faPhone, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLinkedinIn,
+  faFacebookF,
+  faTwitter,
+  // faCopyright
+} from '@fortawesome/free-brands-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import BackgroundSlider from 'gatsby-image-background-slider'
 import BackgroundImage from 'gatsby-background-image'
 import Img from "gatsby-image"
+import Slider from '../components/Slider/slider'
 
-library.add(faPhone, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo);
+library.add(faMouse, faPhone, faAd, faUserFriends, faComments, faLaptop, faTachometerAlt, faEdit, faEye, faCamera, faVideo);
 
 const Skills = ({skills}) => (
   <div className="home-skills">
     <h2 className="homeTitle big">9 expertises</h2>
     <h2 className="homeSubtitle">à votre service</h2>
-      <div className="home-skillsContent">
+    <div className="home-skillsContent">
 
-        {skills.map(({ node }) => {
-          return (
-            <Link key={node.fields.slug} className="home-skillsContentItem" to={`/skills${node.fields.slug}`}>
-              <FontAwesomeIcon className="home-skillsContentItemIcon" icon={node.frontmatter.icon} />
-              <h4 className="home-skillsContentItemTitle">{node.frontmatter.title}</h4>
-            </Link>   
-          )
-        })}
-      </div>
-        <div className="home-skillsCta">
-          <Link to="/skills/">
-            <Button title="En savoir plus" className="purple" icon="true"></Button>
-          </Link>
-        </div>
+      {skills.map(({ node }) => {
+        return (
+          <Link key={node.fields.slug} className="home-skillsContentItem" to={`/skills${node.fields.slug}`}>
+            <FontAwesomeIcon className="home-skillsContentItemIcon" icon={node.frontmatter.icon} />
+            <h4 className="home-skillsContentItemTitle">{node.frontmatter.title}</h4>
+          </Link>   
+        )
+      })}
+    </div>
+    <div className="home-skillsCta">
+      <Link to="/skills/">
+        <Button title="En savoir plus" className="purple" icon="true"></Button>
+      </Link>
+    </div>
   </div>
 )
 
@@ -98,6 +109,15 @@ const Articles = ({articles}) => (
   </div>
 )
 class IndexPage extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      axis: 'x'
+    }
+    this.setAxis = axis => {
+      return () => this.setState({'axis': axis})
+    }
+  }
   render() {
     const { data } = this.props
 
@@ -114,15 +134,37 @@ class IndexPage extends React.Component {
         />
         <Navbar position="top"/>
         <section className="home">
+          {/* <header className="home-header">
+            
+            <Carousel backgrounds={backgrounds}/>
+            <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/>
+          </header> */}
           <header className="home-header">
-            {/* <Carousel backgrounds={backgrounds}/> */}
-            {/* <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/> */}
+            <div className="home-headerBg">
+            </div>
+            <div>
+              <span className={this.state.axis === 'x' ? 'axis current' : 'axis'}
+                onClick={this.setAxis('x')}></span>
+              <span className={this.state.axis === 'y' ? 'axis current' : 'axis'}
+                onClick={this.setAxis('y')}></span>
+            </div>
+            <Slider loop auto axis={this.state.axis} className="home-headerSlider">
+              <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide0})`, height: '100%'}}></div>
+              <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide1})`, height: '100%'}}></div>
+              <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide2})`, height: '100%'}}></div>
+              <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide3})`, height: '100%'}}></div>
+            </Slider>
+            <div className="home-headerContent">
+              <div className="home-headerText">
+                  <h1 className="home-headerTextTitle">Apporter</h1>
+                  <h2 className="home-headerTextSubtitle">de la <span className="home-headerTextSubtitle--bold">visibilité</span> et du public à vos <span className="home-headerTextSubtitle--bold">ambitions</span></h2>
+              </div>
+              <FontAwesomeIcon className="home-headerScroll" icon="mouse" />
+            </div>
           </header>
           
           <div>
-
             <Skills skills={skills} />
-
             <div className="home-cta">
               <h2 className="homeTitle white">Un projet à concrétiser ?</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>

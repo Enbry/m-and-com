@@ -38,9 +38,9 @@ class ProjectsPostTemplate extends React.Component {
               <div className="project-itemMissions">
                 <h4 className="project-itemSubtitle">Missions</h4>
                 <ul className="project-itemMissionsList">
-                  {project.frontmatter.missions.map(mission => {
+                  {project.frontmatter.missions && project.frontmatter.missions.map((mission, index) => {
                     return(
-                      <li className="project-itemMissionsListItem">
+                      <li key={index} className="project-itemMissionsListItem">
                        <FontAwesomeIcon icon={faChevronRight} className="project-itemMissionsListItemIcon"/>
                         {mission.text}
                       </li>

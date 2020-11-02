@@ -7,9 +7,10 @@
     text-transform: uppercase;
     padding: 20px 0;
     position: fixed;
-    z-index: 2;
+    color: $white;
+    z-index: 101;
     width: 100%;
-    background: transparent;
+    background: $background-dark;
     
     &.top{
         top: 0;

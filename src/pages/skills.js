@@ -62,6 +62,9 @@ export const pageQuery = graphql`
             title
             description
             icon
+            processus{
+              text
+            }
           }
         }
       }

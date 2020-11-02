@@ -59,9 +59,19 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD/MM/YYYY")
             title
             description
+            image {
+              imageAlt
+              image {
+                childImageSharp {
+                    fluid (maxWidth: 4000, quality: 100){
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+              }
+            }
           }
         }
       }

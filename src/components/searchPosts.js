@@ -54,11 +54,11 @@ const SearchedPosts = ({ results }) =>
       return (
         <div key={slug}>
           <h3>
-            <Link style={{ boxShadow: `none` }} to={`/posts${slug}`}>
+            <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
               {title}
             </Link>
           </h3>
-          {/* <Img fluid={node.image.image.childImageSharp.fluid} /> */}
+          <Img fluid={node.image.image.childImageSharp.fluid} />
 
           <small>{date}</small>
           <p
@@ -81,9 +81,9 @@ const AllPosts = ({ posts }) => (
       const title = node.frontmatter.title || node.fields.slug
       return (
         <div className="posts-item" key={node.fields.slug}>
-          <Link style={{ boxShadow: `none` }} to={`/posts${node.fields.slug}`}>
+          <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
             <div className="posts-itemImage">
-              {/* <Img fluid={node.frontmatter.image.image.childImageSharp.fluid} /> */}
+              <Img fluid={node.frontmatter.image.image.childImageSharp.fluid} />
             </div>
             <div className="posts-itemContent">
               <h2 className="posts-itemTitle">
