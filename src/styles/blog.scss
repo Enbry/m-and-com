@@ -1,93 +1,50 @@
 @import "../styles/generic.scss";
 
-.skill {
+.blog {
     padding-bottom: 50px;
-    
-    &-container{
-        margin: 100px 0 10% 10%;
-        display: flex;
-    }
+    padding-left: 10%;
+    background-color: $background-gray;
 
     &-content{
         display: flex;
-        width: 50%;
+        width: 70%;
     }
 
-    &-pictures{
-        width: 50%;
-        padding: 0 10%;
-        display: flex;
-        flex-wrap: wrap;
-        &Item{
-            flex: 1 1 40%;
-        }
+    &-sidebar{
+        width: 35%;
     }
 
     &-item{
-        line-height: 1.5;
+        margin-bottom: 40px;
+        background-color: $white;
 
-        &Title{
-
-        }
-       
-        &Hash{
-            color: $red;
-            font-style: italic;
+        &Content{
+            padding: 10px 35px;
         }
 
-        &Subtitle{
-            color: $red;
-            margin: 0 0 10px 0;
-            font-size: 14px;
+        &Image{
+            overflow: hidden;
+            max-height: 400px;
         }
 
-        &Brief{
+        &Date{
             display: flex;
-            flex-direction: column;
-            position: relative;
-            padding-left: 25px;
-            &:after{
-                content: '';
-                display: block;
-                left: 0;
-                position: absolute;
-                top: 0;
-                width: 5px;
-                height: 100%;
-                background-color: #ff3a4c;
+            align-items: center;
+            color: $lightgray;
+            font-weight: $bold;
+            font-size: 14px;
+
+            &Icon{
+                margin-right: 10px;
+                color: $red;
+                font-size: 20px;
             }
-            
         }
 
-        &Missions{
-            margin-bottom: 45px;
-            &List{
-                margin-top: 0;
-                padding-inline-start: 0;
-                list-style: none;
-                &Item{
-
-                    &Icon{
-                        color: $red;
-                        margin-right: 10px;
-                    }
-
-                }
-            }
-            
+        &Body{
+            color: $gray;
+            line-height: 1.5;
         }
-
-        &Clients{
-            margin-bottom: 45px;
-            
-        }
-
-        &Links{
-            margin-bottom: 45px;
-            
-        }
-
-        
     }
 
     &-navigation{
@@ -96,7 +53,6 @@
         justify-content: space-between;
         padding-inline-start: 0;
         margin-right: 10%;
-        margin-left: 10%;
 
         &Link{
             display: flex;
@@ -137,7 +93,6 @@
         &Icon{
             background-color: $white;
             border-radius: 50%;
-            border: solid 1px;
             padding: 10px;
             transition: all 0.3s ease-in-out;
             &:hover{

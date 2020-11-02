@@ -1,57 +1,82 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Navbar from "../components/Navbar/navbar"
-import Footer from "../components/Footer/footer"
+import Img from "gatsby-image"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-class BlogPostTemplate extends React.Component {
+import Breadcrumb from "../components/Breadcrumb/breadcrumb"
+import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
+import '../styles/blog.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+class BlogsPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.mdx
+    const blog = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+          title={blog.frontmatter.title}
+          description={blog.frontmatter.description || blog.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{display: `block`}}
-        >
-          {post.frontmatter.date}
-        </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
-        <hr/>
-        {/* <Bio /> */}
-
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`/blog${previous.fields.slug}`} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`/blog${next.fields.slug}`} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        <Navbar position="top"/>
+        <Breadcrumb title={`${blog.frontmatter.title.slice(0,50)}...`} link="/blogs" page="Blog"/>
+        <div className="blog">
+          <div className="blog-container">
+            <div className="blog-content">
+              <div className="blog-item">
+                <Img fluid={blog.frontmatter.image.image.childImageSharp.fluid} />
+                <div className="blog-itemContent">
+                  <h2 className="blog-itemTitle">{blog.frontmatter.title}</h2>
+                  <p
+                    className="blog-itemDate"
+                    style={{display: `block`}}
+                  >
+                    <FontAwesomeIcon icon={faCalendarAlt} className="blogs-itemDateIcon"/>
+                    {blog.frontmatter.date}
+                  </p>
+                  <div className="blog-itemBody">
+                    <MDXRenderer>{blog.body}</MDXRenderer>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="blog-sidebar"></div>
+          </div>
+          <ul className="blog-navigation">
+              <li>
+                {previous && (
+                  <>
+                    <Link className="blog-navigationLink" to={`/blogs${previous.fields.slug}`} rel="previous">
+                      <FontAwesomeIcon icon={faArrowLeft} className="blog-navigationIcon previous"/>
+                      <div className="blog-navigationItem previous">
+                        <p className="blog-navigationItemTitle">{`${previous.frontmatter.title.slice(0,30)}...`}</p>
+                        <p className="blog-navigationItemText">Précédent</p>
+                      </div>
+                    </Link>
+                  </>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <>
+                    <Link className="blog-navigationLink" to={`/blogs${next.fields.slug}`} rel="next">
+                      <div className="blog-navigationItem next">
+                        <p className="blog-navigationItemTitle">{`${next.frontmatter.title.slice(0,30)}...`}</p>
+                        <p className="blog-navigationItemText">Suivant</p>
+                      </div>
+                      <FontAwesomeIcon icon={faArrowRight} className="blog-navigationIcon next"/>
+                    </Link>
+                  </>
+                )}
+              </li>
+            </ul>
+        </div>
         <Footer />
 
       </Layout>
@@ -59,10 +84,10 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default BlogsPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogsPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -75,8 +100,18 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD/MM/YYYY")
         description
+        image {
+          imageAlt
+            image {
+              childImageSharp {
+                  fluid (quality: 100){
+                  ...GatsbyImageSharpFluid
+                  }
+              }
+            }
+        }
       }
     }
   }

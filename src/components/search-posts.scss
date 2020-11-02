@@ -1,0 +1,52 @@
+@import "../styles/generic.scss";
+
+.posts {
+    display: flex;
+    padding: 70px 0 0 15%;
+    background-color: $background-gray;
+
+    &-search{
+        width: 35%;
+        padding: 80px;
+    }
+
+    &-item{
+        margin-bottom: 40px;
+        background-color: $white;
+
+        &Content{
+            padding: 10px 35px;
+        }
+
+        &Image{
+            overflow: hidden;
+            max-height: 400px;
+        }
+
+        &Title{
+            transition: all 0.3s ease-in-out;
+
+            &:hover{
+                color: $red;
+            }
+        }
+
+        &Date{
+            display: flex;
+            align-items: center;
+            color: $lightgray;
+            font-weight: $bold;
+            font-size: 14px;
+
+            &Icon{
+                margin-right: 10px;
+                color: $red;
+                font-size: 20px;
+            }
+        }
+
+        &Desc{
+            color: $gray;
+        }
+    }
+}
