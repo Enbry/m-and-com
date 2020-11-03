@@ -51,7 +51,7 @@ const AllSkills = ({ skills, background }) => (
         <div className="skills-item"  key={node.fields.slug}>
           <Link className="skills-itemBlock" style={{ boxShadow: `none` }} to={`/skills${node.fields.slug}`}>
             {/* <Img fluid={background.fluid} /> */}
-            <FontAwesomeIcon className="skills-itemIcon" icon={node.frontmatter.icon} />
+            <FontAwesomeIcon className="skills-itemIcon" icon={node.frontmatter.icon} size="3x"/>
             
             <h2 className="skills-itemTitle">
               {title}

@@ -47,7 +47,7 @@ const Skills = ({skills}) => (
     </div>
     <div className="home-skillsCta">
       <Link to="/skills/">
-        <Button title="En savoir plus" className="purple" icon="true"></Button>
+        <Button title="En savoir plus" className="red" icon="true"></Button>
       </Link>
     </div>
   </div>
@@ -94,18 +94,6 @@ const Articles = ({articles}) => (
         <Button title="Voir tous les articles" className="purple" icon="true"></Button>
       </Link>
     </div>
-    
-    {/* {articles.map(({ node }) => {
-      const articlesBg = [];
-      articles.forEach( article => {
-        articlesBg.push(article.node.frontmatter.image.image)
-      })
-      return (
-        <div key={node.fields.slug}>
-          <h6>{node.frontmatter.title}</h6>
-        </div>
-      )
-    })} */}
   </div>
 )
 class IndexPage extends React.Component {
@@ -134,11 +122,6 @@ class IndexPage extends React.Component {
         />
         <Navbar position="top"/>
         <section className="home">
-          {/* <header className="home-header">
-            
-            <Carousel backgrounds={backgrounds}/>
-            <img src={headerImg} alt="Gatsby Scene" className="home-header-bg"/>
-          </header> */}
           <header className="home-header">
             <div className="home-headerBg">
             </div>
@@ -159,7 +142,7 @@ class IndexPage extends React.Component {
                   <h1 className="home-headerTextTitle">Apporter</h1>
                   <h2 className="home-headerTextSubtitle">de la <span className="home-headerTextSubtitle--bold">visibilité</span> et du public à vos <span className="home-headerTextSubtitle--bold">ambitions</span></h2>
               </div>
-              <FontAwesomeIcon className="home-headerScroll" icon="mouse" />
+              <FontAwesomeIcon  className="home-headerMouse" icon="mouse" size="3x"/>
             </div>
           </header>
           
@@ -189,7 +172,6 @@ class IndexPage extends React.Component {
               <div className="home-contactContent">
 
                 <div className="home-contactBlock">
-                  {/* <form className="home-contactForm" method="post" action="https://getform.io/f/ea07a596-28d9-41bc-9fab-8deeb55d027f"> */}
                   <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
                     <input type="hidden" name="bot-field" />
                     <input type="hidden" name="form-name" value="contact" />

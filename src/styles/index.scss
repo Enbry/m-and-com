@@ -70,9 +70,8 @@
             }
         }
 
-        &Scroll{
-            // @include font-size(3.5rem);
-            font-size: 50px;
+        &Mouse{
+            // font-size: 50px!important;
             color: $white;
             animation: 2s infinite bounce;
         }
@@ -177,7 +176,8 @@
                 bottom: 0;
                 transition: height 0.5s ease-out;
                 opacity: 0.9;
-                background:$background-dark;
+                background: rgba(13, 0, 47, 0.9);
+                // background:$background-dark;
             }
             
             &:after{

@@ -1,8 +1,8 @@
 @import "../../styles/generic.scss";
 
-.active {
-    color: $red;
-}
+// .active {
+//     color: $red;
+// }
 .navbar{
     text-transform: uppercase;
     padding: 20px 0;
@@ -50,7 +50,7 @@
                 border-bottom: 3px solid;
                 border-color: $red;
             }
-            &:hover{
+            &:hover, &.active{
                 color: $red;
 
                 &:after {

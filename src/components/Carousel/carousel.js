@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Slider from "react-slick"
 import 'slick-carousel/slick/slick.css'
@@ -19,11 +19,11 @@ const Carousel = ({items, slidesNb}) => {
       return(
         <Slider {...settings} className="carousel">
             {items.map(item => (
-                <div key={item.node.fields.slug}>
+                <Link key={item.node.fields.slug} to={`/articles${item.node.fields.slug}`}>
                     <Img className="carouselImg" fluid={item.node.frontmatter.image.image.childImageSharp.fluid} />
                     <h3 className="carouselTitle">{`${item.node.frontmatter.title.slice(0,60)}...`}</h3>
                     <p className="carouselText">{item.node.excerpt}</p>
-                </div>
+                </Link>
             ))}
         </Slider>
       )

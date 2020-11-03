@@ -74,7 +74,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    backgroundImage: file (relativePath: { eq: "header-2.jpg" }){
+    backgroundImage: file (relativePath: { eq: "projects.jpg" }){
       relativePath
       childImageSharp {
           fluid (quality: 100){
