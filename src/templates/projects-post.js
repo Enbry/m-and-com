@@ -62,11 +62,15 @@ class ProjectsPostTemplate extends React.Component {
               </div>
             </div>
           </div>
-          <div className="project-pictures">
-            <div className="project-picturesItem">
-              <Img fluid={project.frontmatter.images[0].image.childImageSharp.fluid}/>
-            </div>
-          </div>
+          {
+            project.frontmatter.images[0].image && (
+              <div className="project-pictures">
+                <div className="project-picturesItem">
+                  <Img fluid={project.frontmatter.images[0].image.childImageSharp.fluid}/>
+                </div>
+              </div>
+            )
+          }
         </div>
 
         <ul className="project-navigation">
