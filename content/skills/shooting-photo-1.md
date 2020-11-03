@@ -3,16 +3,19 @@ path: Shooting photo
 date: 2020-11-02T17:29:52.643Z
 title: Shooting photo
 description: Shooting photo
-process:
-  - text: "Définition des besoins : direction créative, nombre de clichés, lieux,
-      modèles et retouches souhaitées"
-  - text: Fourniture d’un lien de téléchargement et d’une clé usb avec les photos
-      sélectionnées et retouchées si nécessaire
 processus:
   - text: "Définition des besoins : direction créative, nombre de clichés, lieux,
       modèles et retouches souhaitées"
   - text: Fourniture d’un lien de téléchargement et d’une clé usb avec les photos
       sélectionnées et retouchées si nécessaire
+process:
+  - text: "Définition des besoins : direction créative, nombre de clichés, lieux,
+      modèles et retouches souhaitées"
+  - text: Fourniture d’un lien de téléchargement et d’une clé usb avec les photos
+      sélectionnées et retouchées si nécessaire
+image:
+  imageAlt: Shooting photo
+  image: ../assets/photo.jpg
 icon: camera
 ---
 Le bon cliché pour le bon support permettra de vous différencier de la concurrence et d’accentuer une identité propre et qualitative.
