@@ -7,11 +7,6 @@ import './search-projects.scss';
 import BackgroundImage from 'gatsby-background-image'
 
 const SearchedProjects = ({ results }) =>
-
-  // <h3 className="projectsTitle">
-  //   De la <span className="projectsEmphasize">création de marque</span> à son <span className="projectsEmphasize">identité visuelle</span> & ses <span className="projectsEmphasize">outils de communication dédiés</span>,
-  //   en passant par la <span className="projectsEmphasize">rédaction du discours de votre marque</span> adaptée à tous les supports, à la <span className="projectsEmphasize">mise en œuvre d’un plan de communication</span> et de diffusion adapté, Chez Margot communication développera LA com’ qu’il vous faut.
-  // </h3>
   results.length > 0 ? (
     results.map(node => {
       const date = node.date
@@ -21,22 +16,18 @@ const SearchedProjects = ({ results }) =>
       const slug = node.slug
 
       return (
-        <div className="projects-item"  key={node.fields.slug}>
-          <Link style={{ boxShadow: `none` }} to={`/projects${node.fields.slug}`}>
-          <h2 className="projects-itemDesc">
+        <div key={slug}>
+          <h3>
+            <Link style={{ boxShadow: `none` }} to={`/projects${slug}`}>
               {title}
-          </h2>
-          {
-            node.frontmatter.images[0].image && (
-            <BackgroundImage
-              fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
-              className="projects-itemBg"
-            >
-              
-            </BackgroundImage>
-            )
-          }
-          </Link>
+            </Link>
+          </h3>
+          <small>{date}</small>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: description || excerpt,
+            }}
+          />
         </div>
       )
     })
@@ -48,10 +39,6 @@ const SearchedProjects = ({ results }) =>
 
 const AllProjects = ({ projects }) => (
   <div className="projects">
-    <h3 className="projectsTitle">
-    De la <span className="projectsEmphasize">création de marque</span> à son <span className="projectsEmphasize">identité visuelle</span> & ses <span className="projectsEmphasize">outils de communication dédiés</span>,
-    en passant par la <span className="projectsEmphasize">rédaction du discours de votre marque</span> adaptée à tous les supports, à la <span className="projectsEmphasize">mise en œuvre d’un plan de communication</span> et de diffusion adapté, Chez Margot communication développera LA com’ qu’il vous faut.
-    </h3>
     {projects.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug
     
@@ -61,16 +48,12 @@ const AllProjects = ({ projects }) => (
           <h2 className="projects-itemDesc">
               {title}
           </h2>
-          {
-            node.frontmatter.images[0].image && (
-            <BackgroundImage
-              fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
-              className="projects-itemBg"
-            >
-              
-            </BackgroundImage>
-            )
-          }
+          {/* <BackgroundImage
+            fluid={node.frontmatter.images[0].image.childImageSharp.fluid}
+            className="projects-itemBg"
+          >
+            
+          </BackgroundImage> */}
           </Link>
         </div>
       )
@@ -82,7 +65,6 @@ const SearchProjects = ({ projects, localSearchItems, location, navigate }) => {
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || "")
 
-  console.log(results);
   const results = useFlexSearch(
     query,
     localSearchItems.index,
