@@ -104,13 +104,13 @@ export const pageQuery = graphql`
         description
         image {
           imageAlt
-            image {
-              childImageSharp {
-                  fluid (quality: 100){
-                  ...GatsbyImageSharpFluid
-                  }
-              }
+          image {
+            childImageSharp {
+                fluid (quality: 100){
+                ...GatsbyImageSharpFluid
+                }
             }
+          }
         }
       }
     }

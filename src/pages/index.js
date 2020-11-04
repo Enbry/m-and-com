@@ -123,24 +123,27 @@ class IndexPage extends React.Component {
         <Navbar position="top"/>
         <section className="home">
           <header className="home-header">
-            <div className="home-headerBg">
-            </div>
-            <div>
+            {/* <div className="home-headerBg">
+            </div> */}
+            {/* <div>
               <span className={this.state.axis === 'x' ? 'axis current' : 'axis'}
                 onClick={this.setAxis('x')}></span>
               <span className={this.state.axis === 'y' ? 'axis current' : 'axis'}
                 onClick={this.setAxis('y')}></span>
+            </div> */}
+            <div className="home-headerSlider">
+              <Image  className="home-headerSliderItem"  fluid={data.banner.childImageSharp.fluid}></Image>
             </div>
-            <Slider loop auto axis={this.state.axis} className="home-headerSlider">
+            {/* <Slider loop auto axis={this.state.axis} className="home-headerSlider">
               <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide0})`, height: '100%'}}></div>
               <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide1})`, height: '100%'}}></div>
               <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide2})`, height: '100%'}}></div>
               <div className="home-headerSliderItem" style={{backgroundImage:`url(${slide3})`, height: '100%'}}></div>
-            </Slider>
+            </Slider> */}
             <div className="home-headerContent">
               <div className="home-headerText">
-                  <h1 className="home-headerTextTitle">Apporter</h1>
-                  <h2 className="home-headerTextSubtitle">de la <span className="home-headerTextSubtitle--bold">visibilité</span> et du public à vos <span className="home-headerTextSubtitle--bold">ambitions</span></h2>
+                  <h1 className="home-headerTextTitle">AGENCE DE CONSEIL</h1>
+                  <h2 className="home-headerTextSubtitle">en <span className="home-headerTextSubtitle--bold">communication globale</span></h2>
               </div>
               <FontAwesomeIcon  className="home-headerMouse" icon="mouse" size="3x"/>
             </div>
@@ -317,6 +320,14 @@ export const pageQuery = graphql`
       }
     }
     gradient: file (relativePath: { eq: "gradient.jpg" }){
+      relativePath
+      childImageSharp {
+          fluid (quality: 100){
+          ...GatsbyImageSharpFluid
+          }
+      }
+    }
+    banner: file (relativePath: { eq: "banner.jpg" }){
       relativePath
       childImageSharp {
           fluid (quality: 100){

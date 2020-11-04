@@ -6,11 +6,12 @@
     &-container{
         margin: 100px 0 10% 10%;
         display: flex;
+        align-items: center;
     }
 
     &-content{
         display: flex;
-        width: 50%;
+        width: 60%;
     }
 
     &-pictures{
@@ -20,14 +21,18 @@
         flex-wrap: wrap;
         &Item{
             flex: 1 1 40%;
+
+            &Img{
+                height: 100%;
+            }
         }
     }
 
     &-item{
-        line-height: 1.5;
+        line-height: 2;
 
         &Title{
-
+            margin-top: 0;
         }
        
         &Hash{
@@ -55,8 +60,7 @@
                 width: 5px;
                 height: 100%;
                 background-color: #ff3a4c;
-            }
-            
+            }  
         }
 
         &Missions{

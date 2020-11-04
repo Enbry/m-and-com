@@ -5,11 +5,12 @@
 // }
 .navbar{
     text-transform: uppercase;
-    padding: 20px 0;
+    // padding: 20px 0;
     position: fixed;
     color: $white;
     z-index: 101;
     width: 100%;
+    // background: black;
     background: $background-dark;
     
     &.top{
@@ -28,7 +29,7 @@
     }
 
     &-logo{
-        height: 50px;
+        height: 100px;
     }
 
     &-menu{

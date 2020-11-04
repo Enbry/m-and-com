@@ -52,21 +52,29 @@ const SearchedArticles = ({ results }) =>
       const slug = node.slug
 
       return (
-        <div key={slug}>
-          <h3>
-            <Link style={{ boxShadow: `none` }} to={`/articles${slug}`}>
-              {title}
-            </Link>
-          </h3>
-          {/* <Img fluid={node.image.image.childImageSharp.fluid} /> */}
+        // <div className="articles-item" key={node.fields.slug}>
+          {/* <Link style={{ boxShadow: `none` }} to={`/articles${node.fields.slug}`}>
+            <div className="articles-itemImage">
+              <Img fluid={node.frontmatter.image.image.childImageSharp.fluid} />
+            </div>
+            <div className="articles-itemContent">
+              <h2 className="articles-itemTitle">
+                  {title}
+              </h2>
 
-          <small>{date}</small>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: description || excerpt,
-            }}
-          />
-        </div>
+              <small className="articles-itemDate">
+                <FontAwesomeIcon icon={faCalendarAlt} className="articles-itemDateIcon"/>
+                {node.frontmatter.date}
+                </small>
+              <p
+                className="articles-itemDesc"
+                dangerouslySetInnerHTML={{
+                  __html: node.excerpt,
+                }}
+              />
+            </div>
+          </Link> */}
+        // </div>
       )
     })
   ) : (
@@ -124,7 +132,7 @@ const SearchArticles = ({ articles, localSearchItems, location, navigate }) => {
         {query ? <SearchedArticles results={results} /> : <AllArticles articles={articles} />}
       </div>
       <div className="articles-search">
-        <SearchBar>
+        {/* <SearchBar>
           <svg
             focusable="false"
             xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +152,7 @@ const SearchArticles = ({ articles, localSearchItems, location, navigate }) => {
               setQuery(e.target.value)
             }}
           />
-        </SearchBar>
+        </SearchBar> */}
 
       </div>
     </div>

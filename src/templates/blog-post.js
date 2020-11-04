@@ -52,7 +52,7 @@ class BlogsPostTemplate extends React.Component {
               <li>
                 {previous && (
                   <>
-                    <Link className="blog-navigationLink" to={`/blogs${previous.fields.slug}`} rel="previous">
+                    <Link className="blog-navigationLink" to={`/blog${previous.fields.slug}`} rel="previous">
                       <FontAwesomeIcon icon={faArrowLeft} className="blog-navigationIcon previous"/>
                       <div className="blog-navigationItem previous">
                         <p className="blog-navigationItemTitle">{`${previous.frontmatter.title.slice(0,30)}...`}</p>
@@ -65,7 +65,7 @@ class BlogsPostTemplate extends React.Component {
               <li>
                 {next && (
                   <>
-                    <Link className="blog-navigationLink" to={`/blogs${next.fields.slug}`} rel="next">
+                    <Link className="blog-navigationLink" to={`/blog${next.fields.slug}`} rel="next">
                       <div className="blog-navigationItem next">
                         <p className="blog-navigationItemTitle">{`${next.frontmatter.title.slice(0,30)}...`}</p>
                         <p className="blog-navigationItemText">Suivant</p>

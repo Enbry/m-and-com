@@ -124,7 +124,7 @@ const SearchPosts = ({ posts, localSearchItems, location, navigate }) => {
         {query ? <SearchedPosts results={results} /> : <AllPosts posts={posts} />}
       </div>
       <div className="posts-search">
-        <SearchBar>
+        {/* <SearchBar>
           <svg
             focusable="false"
             xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@ const SearchPosts = ({ posts, localSearchItems, location, navigate }) => {
               setQuery(e.target.value)
             }}
           />
-        </SearchBar>
+        </SearchBar> */}
 
       </div>
     </div>

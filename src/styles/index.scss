@@ -22,17 +22,18 @@
         &Slider{
             &Item{
                 background-size: cover;
+                height: 100vh;
             }
         }
-        &Bg{
-            // background-color: #923cb5;
-            background-image: linear-gradient(30deg, rgba(0,0,0,1) 5%, rgba(60,14,181,0.5) 50%, rgba(0,0,0,1) 84%);
-            // background: linear-gradient(10deg, rgba(11,15,44,0.8) 0%, rgba(11,15,44,0.9) 26%, rgba(208, 20, 114, 0.4) 51%, rgba(11,15,44,0.9) 80%, rgb(6, 10, 26) 100%);
-            z-index: 100;
-            width: 100%;
-            height: 100vh;
-            position: absolute;            
-        }
+        // &Bg{
+        //     // background-color: #923cb5;
+        //     background-image: linear-gradient(30deg, rgba(0,0,0,1) 5%, rgba(60,14,181,0.5) 50%, rgba(0,0,0,1) 84%);
+        //     // background: linear-gradient(10deg, rgba(11,15,44,0.8) 0%, rgba(11,15,44,0.9) 26%, rgba(208, 20, 114, 0.4) 51%, rgba(11,15,44,0.9) 80%, rgb(6, 10, 26) 100%);
+        //     z-index: 100;
+        //     width: 100%;
+        //     height: 100vh;
+        //     position: absolute;            
+        // }
 
         &Content {
             position: absolute;
@@ -55,6 +56,7 @@
             &Title{
                 font-size: 80px;
                 margin: 0;
+                text-align: center;
                 // @include font-size(5rem);
             }
 

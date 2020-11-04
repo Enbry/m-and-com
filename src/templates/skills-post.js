@@ -19,6 +19,7 @@ class SkillsPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
+    console.log(skill);
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -59,11 +60,13 @@ class SkillsPostTemplate extends React.Component {
           </div>
           <div className="skill-pictures">
             <div className="skill-picturesItem">
-              {/* {
-                skill.frontmatter.images[0].image && (
-                  <Img fluid={skill.frontmatter.images[0].image.childImageSharp.fluid}/>
+              {
+                skill.frontmatter.image && (
+                  <div className="skill-picturesItemImg">
+                    <Img fluid={skill.frontmatter.image.image.childImageSharp.fluid}/>
+                  </div>
                 )
-              } */}
+              }
             </div>
           </div>
         </div>
@@ -126,12 +129,12 @@ export const pageQuery = graphql`
         processus{
           text
         }
-        images{
+        image {
           image {
             childImageSharp {
-              fluid (maxWidth: 4000, quality: 100){
-              ...GatsbyImageSharpFluid
-              }
+                fluid (quality: 100){
+                ...GatsbyImageSharpFluid
+                }
             }
           }
         }
